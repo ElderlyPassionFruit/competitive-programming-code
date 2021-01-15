@@ -1,0 +1,152 @@
+\documentclass[12pt]{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{dsfont}
+\usepackage[russian]{babel}
+\usepackage[margin=15mm]{geometry}
+\usepackage{ragged2e}
+\usepackage{nicefrac}
+
+\title{\textbf{ДЗ-11}}
+\author{Фёдор Осетров\\ \textit{группа 203}}
+
+\begin{document}
+    \maketitle
+
+    \paragraph{Задача 8}
+        \subparagraph{a)}
+            Докажем, что $\bar{o}(x^2) + \bar{o}(x) = o(x)$ при $x \to 0$.
+            \begin{equation*}
+                \lim_{x \to 0} \frac{\bar{o}(x^2) + \bar{o}(x)}{x} =
+                \lim_{x \to 0} \left(x \cdot \frac{\bar{o}(x)}{x} + \frac{\bar{o}(x)}{x}\right) =
+                \{\lim_{x \to 0} x = \lim_{x \to 0} \frac{\bar{o}(x)}{x} = 0\} =
+                \lim_{x \to 0} \left(0 + 0\right) = 0
+            \end{equation*}
+            А значит, что равенство \textbf{верно}.$\hfill\square$
+        \subparagraph{b)}
+            Докажем, что $\bar{o}(x) + x^2 = \bar{o}(x)$ при $x \to 0$.
+            \begin{equation*}
+                \lim_{x \to 0} \frac{\bar{o}(x) + x^2}{x} =
+                \lim_{x \to 0} \left(\frac{\bar{o}(x)}{x} + x\right) =
+                \{\lim_{x \to 0} \frac{\bar{o}(x)}{x} = \lim_{x \to 0} x = 0\} =
+                \lim_{x \to 0} \left(0 + 0\right) = 0
+            \end{equation*}
+            А значит, что равенство \textbf{верно}.$\hfill\square$
+        \subparagraph{c)}
+            Перенесём $2x^3$ влево, получим
+            \begin{gather*}
+                (x + \bar{o}(x))(2x^2 + \bar{o}(x^2)) - 2x^3 =
+                x \cdot (1 + \bar{o}(1)) \cdot x^2 \cdot (2 + \bar{o}(1)) - 2x^3 =\\
+                x^3 \cdot (1 + \bar{o}(1)) \cdot (2 + \bar{o}(1)) - 2x^3 =
+                x^3 \cdot (2 + \bar{o}(1) + 2\bar{o}(1) + \bar{o}(1)^2) - 2x^3 =\\
+                = \{\bar{o}(1)^2 = \bar{o}(1), 2\bar{o}(1) = \bar{o}(1)\} =
+                x^3 \cdot (2 + \bar{o}(1) + \bar{o}(1) + \bar{o}(1)) - 2x^3 =\\
+                x^3 \cdot (2 + \bar{o}(1)) - 2x^3 =
+                x^3 \cdot (2 + \bar{o}(1) - 2) = x^3 \cdot \bar{o}(1) = \bar{o}(x^3)
+            \end{gather*}
+            А значит, что равенство \textbf{верно}.
+        \subparagraph{d)}
+            Заметим, что при $x \to 0$ $2x = \bar{o}(1)$ и $x = \bar{o}(1)$. Тогда,
+            $2x - x = x \neq 0$, значит, данное равенство \textbf{неверно}.
+    \paragraph{Задача 9}
+        \subparagraph{a)}
+            Из основного тригонометрического тождества, делением на $\frac{1}{\cos^2{x}}$, получаем $1 + \tg^2{x} = \frac{1}{\cos^2{x}}$
+            \begin{gather*}
+                \lim_{x \to 0} (1 + \tg^2(x))^{\frac{1}{\ln{\cos{x}}}} =
+                \lim_{x \to 0} (\cos{x})^{\frac{-2}{\ln{\cos{x}}}} =
+                \{\cos{x} = 1 - \frac{1}{2}x^2 + \bar{o}(x^2)\} =
+                \lim_{x \to 0} (\cos{x})^{\frac{-2}{\ln(1 - \frac{1}{2}x^2 + \bar{o}(x^2))}} =\\
+                = \{\ln(1 + x) = x + \bar{o}(x)\} =
+                \lim_{x \to 0} (\cos{x})^{\frac{-2}{-\frac{1}{2}x^2 + \bar{o}(x^2) + \bar{o}(-\frac{1}{2}x^2 + \bar{o}(x^2))}} =
+                \{\bar{o}(-\frac{1}{2}x^2 + \bar{o}(x^2)) = \bar{o}(x^2)\} =\\
+                \lim_{x \to 0} (\cos{x})^{\frac{-2}{-\frac{1}{2}x^2 + \bar{o}(x^2) + \bar{o}(x^2)}} =
+                \lim_{x \to 0} (\cos{x})^{\frac{-2}{-\frac{1}{2}x^2 + \bar{o}(x^2)}} =
+                \lim_{x \to 0} (\cos{x})^{\frac{2}{\frac{1}{2}x^2 - \bar{o}(x^2)}} =
+                \lim_{x \to 0} (\cos{x})^{\frac{1}{x^2} \cdot \frac{2}{\frac{1}{2} - \bar{o}(1)}} =
+            \end{gather*}
+            \newpage
+            \begin{gather*}
+                = \{\lim_{x \to 0} \frac{2}{\frac{1}{2} - \bar{o}(1)} = 4\} =
+                \lim_{x \to 0} (\cos{x})^{\frac{4}{x^2}} =
+                \{\cos{x} = 1 - \frac{1}{2}x^2 + \bar{o}(x^2)\} =
+                \lim_{x \to 0} (1 - \frac{1}{2}x^2 + \bar{o}(x^2))^{\frac{4}{x^2}} =\\
+                \lim_{x \to 0} (1 - \frac{1}{2}x^2 + \bar{o}(x^2))^{\frac{- \frac{1}{2}x^2 + \bar{o}(x^2)}{-\frac{1}{2}x^2 + \bar{o}(x^2)} \cdot \frac{4}{x^2}} =
+                \{\lim_{x \to 0} (1 + x)^{\frac{1}{x}} = e\} = 
+                \lim_{x \to 0} e^{\frac{- \frac{1}{2}x^2 + \bar{o}(x^2)}{1} \cdot \frac{4}{x^2}} =
+                \lim_{x \to 0} e^{-2 + 4\frac{\bar{o}(x^2)}{x^2}} =\\
+                = \{\lim_{x \to 0} \frac{\bar{o}(x^2)}{x^2} = 0\} =
+                \lim_{x \to 0} e^{-2} = \mathbf{e^{-2}}.
+            \end{gather*}
+        \subparagraph{b)}
+            \begin{gather*}
+                \lim_{x \to 1} (x^2 + \sin^2(\pi x))^{\frac{1}{\ln{x}}} =
+                \{x = 1 + y \Rightarrow y \to 0\} =
+                \lim_{y \to 0} ((1 + y)^2 + \sin^2(\pi \cdot (1 + y)))^{\frac{1}{\ln(1+y)}} =\\
+                \lim_{y \to 0} ((1 + y)^2 + \sin^2(\pi + \pi y)))^{\frac{1}{\ln(1+y)}} =
+                \{\sin(x + \pi) = \sin{x} \cdot \cos{\pi} + \cos{x} \cdot \sin{\pi} = -\sin{x}\} =\\
+                \lim_{y \to 0} ((1 + y)^2 + (-\sin(\pi y))^2)^{\frac{1}{\ln(1+y)}} =
+                \lim_{y \to 0} ((1 + y)^2 + \sin^2(\pi y))^{\frac{1}{\ln(1+y)}} =
+                \{\ln(1 + x) = x + \bar{o}(x)\} =\\
+                \lim_{y \to 0} (1 + (2y + y^2 + \sin^2(\pi y)))^{\frac{1}{y + \bar{o}(y)}} =
+                \lim_{y \to 0} (1 + (2y + y^2 + \sin^2(\pi y)))^{\frac{2y + y^2 + \sin^2{\pi y}}{2y + y^2 + \sin^2{\pi y}} \cdot \frac{1}{y + \bar{o}(y)}} =\\
+                = \{\lim_{x \to 0} (1 + x)^{\frac{1}{x}} = e\} =
+                \lim_{y \to 0} e^{\frac{2y + y^2 + \sin^2{\pi y}}{y + \bar{o}(y)}} =
+                \lim_{y \to 0} e^{\frac{2 + y + \frac{\sin^2{\pi y}}{y}}{1 + \frac{\bar{o}(y)}{y}}} =
+                \{\lim_{x \to 0} \frac{\bar{o}(x)}{x} = 0\} =\\
+                \lim_{y \to 0} e^{2 + y + \frac{\sin^2{\pi y}}{y}} =
+                \lim_{y \to 0} e^{2 + y + \pi^2 \cdot y (\frac{\sin^2{\pi y}}{\pi y})^2} =
+                \{\lim_{x \to 0} \frac{\sin{x}}{x} = 1\} =
+                \lim_{y \to 0} e^{2 + y + \pi^2 \cdot y} =\\
+                = \{\lim_{y \to 0} \left(y + \pi^2y\right) = 0\} =
+                \lim_{y \to 0} e^{2 + 0} = \mathbf{e^2}.
+            \end{gather*}
+        \subparagraph{c)}
+            \begin{gather*}
+                \lim_{x \to \pi} \left(\frac{\cos{x}}{\cos{3x}}\right)^{\frac{1}{(\sqrt{\pi x} - \pi)^2}} =
+                \{x = \pi + y \Rightarrow y \to 0\} =
+                \lim_{y \to 0} \left(\frac{\cos(\pi + y)}{\cos(3(\pi + y))}\right)^{\frac{1}{(\sqrt{\pi \cdot (\pi + y)} - \pi)^2}} =\\
+                = \{\cos(3\pi + x) = \cos(\pi + x) = \cos{\pi} \cdot \cos{x} - \sin{\pi} \cdot \sin{x} = -\cos{x}\} =\\
+                \lim_{y \to 0} \left(\frac{-\cos(y)}{-\cos(3y)}\right)^{\frac{1}{(\sqrt{\pi \cdot (\pi + y)} - \pi)^2}} =
+                \lim_{y \to 0} \left(\frac{\cos(y)}{\cos(3y)}\right)^{\frac{1}{(\sqrt{\pi \cdot (\pi + y)} - \pi)^2}} =\\
+                = \{\cos{x} = 1 - \frac{1}{2}x^2 + \bar{o}(x^2)\} =
+                \lim_{y \to 0} \left(\frac{1 - \frac{1}{2}y^2 + \bar{o}(y^2)}{1 - \frac{1}{2}(3y)^2 + \bar{o}((3y)^2)}\right)^{\frac{1}{(\sqrt{\pi \cdot (\pi + y)} - \pi)^2}} =\\
+                \lim_{y \to 0} \left(\frac{1 - \frac{1}{2}y^2 + \bar{o}(y^2)}{1 - \frac{9}{2}y^2 + \bar{o}(9y^2)}\right)^{\frac{1}{(\sqrt{\pi \cdot (\pi + y)} - \pi)^2}} =
+                \lim_{y \to 0} \left(\frac{1 - \frac{9}{2}y^2 + \bar{o}(y^2) + 4y^2}{1 - \frac{9}{2}y^2 + \bar{o}(y^2)}\right)^{\frac{1}{(\sqrt{\pi \cdot (\pi + y)} - \pi)^2}} =\\
+                \lim_{y \to 0} \left(1 + \frac{4y^2}{1 - \frac{9}{2}y^2 + \bar{o}(y^2)}\right)^{\frac{1}{(\sqrt{\pi \cdot (\pi + y)} - \pi)^2}} =\\
+                \lim_{y \to 0} \left(1 + \frac{4y^2}{1 - \frac{9}{2}y^2 + \bar{o}(y^2)}\right)^{\frac{1-\frac{9}{2}y^2 + \bar{o}(y^2)}{4y^2} \cdot \frac{4y^2}{1-\frac{9}{2}y^2 + \bar{o}(y^2)} \cdot \frac{1}{(\sqrt{\pi \cdot (\pi + y)} - \pi)^2}} =
+                \{\lim_{x \to 0} (1 + x)^{\frac{1}{x}} = e\} =\\
+                \lim_{y \to 0} e^{\frac{4y^2}{1-\frac{9}{2}y^2 + \bar{o}(y^2)} \cdot \frac{1}{(\sqrt{\pi \cdot (\pi + y)} - \pi)^2}} =
+                \{\lim_{y \to 0} \left(1 - \frac{9}{2}y^2 + \bar{o}(y^2)\right) = 1\} =
+                \lim_{y \to 0} e^{4\frac{y^2}{(\sqrt{\pi \cdot (\pi + y)} - \pi)^2}} =
+            \end{gather*}
+            \newpage
+            \begin{gather*}
+                = \lim_{y \to 0} e^{4\left(\frac{y}{\sqrt{\pi \cdot (\pi + y)} - \pi}\right)^2} =
+                = \lim_{y \to 0} e^{4\left(\frac{y(\sqrt{\pi \cdot (\pi + y)} + \pi)}{(\sqrt{\pi \cdot (\pi + y)} + \pi)(\sqrt{\pi \cdot (\pi + y)} - \pi)}\right)^2} =
+                \lim_{y \to 0} e^{4\left(\frac{y(\sqrt{\pi \cdot (\pi + y)} + \pi)}{\pi\cdot (\pi + y) - \pi^2}\right)^2} =\\
+                \lim_{y \to 0} e^{4\left(\frac{y(\sqrt{\pi \cdot (\pi + y)} + \pi)}{\pi y}\right)^2} =
+                \lim_{y \to 0} e^{4\left(\frac{\sqrt{\pi \cdot (\pi + y)} + \pi}{\pi}\right)^2} =
+                \{\lim_{y \to 0} \sqrt{\pi \cdot (\pi + y)} = \pi\} =\\
+                \lim_{y \to 0} e^{4\left(\frac{\pi + \pi}{\pi}\right)^2} =
+                \lim_{y \to 0} e^{4 \cdot 4} = \mathbf{e^{16}}.
+            \end{gather*}
+        \subparagraph{d)}
+            \begin{gather*}
+                \lim_{x \to 1} x^{\tg(\frac{\pi x}{2})} =
+                \{x = 1 + y \Rightarrow y \to 0 \} =
+                \lim_{y \to 0} (1 + y)^{\tg(\frac{\pi (1 + y)}{2})} =
+                \lim_{y \to 0} (1 + y)^{\frac{1}{y} \cdot y \cdot \tg(\frac{\pi (1 + y)}{2})} =\\
+                \{\lim_{x \to 0} (1 + x)^{\frac{1}{x}} = e\} =
+                \lim_{y \to 0} e^{y \cdot \tg(\frac{\pi (1 + y)}{2})} =
+                \lim_{y \to 0} e^{y \cdot \frac{\sin(\frac{\pi (1 + y)}{2})}{\cos(\frac{\pi (1+y)}{2})}} =
+                \lim_{y \to 0} e^{y \cdot \frac{\sin(\frac{\pi}{2} + \frac{\pi y}{2})}{\cos(\frac{\pi}{2} + \frac{\pi y}{2})}} =\\
+                = \{\lim_{y \to 0} \sin(\frac{\pi}{2} + \frac{\pi y}{2}) = \sin{\frac{\pi}{2}} = 1\} =
+                \lim_{y \to 0} e^{\frac{y}{\cos(\frac{\pi}{2} + \frac{\pi y}{2})}} =\\
+                = \{\cos(\frac{\pi}{2} + x) = \cos{\frac{\pi}{2}} \cdot \cos{x} - \sin{\frac{\pi}{2}} \cdot \sin{x} = -\sin{x}\} =
+                \lim_{y \to 0} e^{-\frac{y}{\sin(\frac{\pi y}{2})}} =\\
+                \lim_{y \to 0} e^{-\frac{\frac{\pi y}{2}}{\frac{\pi}{2}\sin(\frac{\pi y}{2})}} =
+                \{\lim_{x \to 0} \frac{x}{\sin{x}} = 1\} =
+                \lim_{y \to 0} e^{-\frac{2}{\pi}} = \mathbf{\frac{1}{e^{\nicefrac{2}{\pi}}}}.
+            \end{gather*}
+\end{document}

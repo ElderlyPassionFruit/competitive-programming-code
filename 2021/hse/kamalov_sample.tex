@@ -1,0 +1,502 @@
+\documentclass[17pt]{article}
+
+\usepackage[utf8]{inputenc} 
+\usepackage[russian]{babel}
+\usepackage{amsmath,amssymb}
+\usepackage{tipa}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{comment}
+\usepackage{fancyhdr}
+\usepackage{amsfonts}
+\usepackage{ marvosym } % гавно с \Neptune
+\usepackage{fontawesome} % лучшие всратые символы
+\binoppenalty=10000
+\relpenalty=10000
+\title{Я линал меня сосали ИДЗ-2}
+\date{}
+\usepackage{multicol}
+\usepackage[left=2cm,right=2cm,
+    top=2cm,bottom=2cm,binding offset=0cm]{geometry}
+
+
+\author{Камалов Амир \includegraphics[scale=0.2]{pre-ambula/chmo.jpg} БПМИ203-1}
+
+\newenvironment{double_matrix}[2]{%
+  \left(\begin{array} 
+        {@{}*{#1}{c}|*{#2}{c}@{}} }{%
+        \end{array}\right)
+}
+
+\begin{document}
+  \pagenumbering{gobble} 
+  \maketitle
+  \pagenumbering{arabic}
+\begin{center}
+А ты думал я дурак? Думал что дурак, да? А я ведь умный.
+\\
+\includegraphics[width=\textwidth]{linal/IHW_2/task.png}
+\\
+Настолько умный, что чтобы не ошибиться и не решить чужой вариант засунул задания сюда. Очень умный.
+\\
+\end{center}
+\section*{\NoIroning\ 1}
+\begin{center}
+Решить $A\cdot X = B$, где 
+$
+A = 
+\begin{pmatrix}
+   -4 & 5 & 0 & 0\\
+   -16 & -14 & -3 & 0\\
+   5 & 5 & 1 & 2
+\end{pmatrix}
+,\ B = 
+\begin{pmatrix}
+   6 & 1 & -16\\
+   -41 & -27 & 75\\
+   20 & 13 & -34
+\end{pmatrix}
+$
+\end{center}
+Так как если мы обе части неравенства будем умножать на матрицы, то ничего меняться не будет. Будем умножать на такие матрицы, которые делают элементарные преобразования(извините за мое объяснение, я вообще не русский э че ты ДоКоПаЛсЯ). Т.е. если мы умножили на матрицу $C$, то $C\cdot (A\cdot X) = C\cdot B\ \implies\ (C\cdot A)\cdot X = C\cdot B$. Или же по-другому, если мы будем умножать на одинаковые матрицы(делать одинаковые элементарные преобразования к $A$ и $B$), то ничего меняться и нарушаться не будет. Приведем $A$ к треугольному виду, а потом применим такие же операции к $B$ и посмотрим что получится.
+\\
+$
+\begin{pmatrix}
+   -4 & 5 & 0 & 0\\
+   -16 & -14 & -3 & 0\\
+   5 & 5 & 1 & 2
+\end{pmatrix}
+\xrightarrow{A_{(2)} += (-4)\cdot A_{(1)},\ A_{(3)} += 1\cdot A_{(1)}}
+\begin{pmatrix}
+   -4 & 5 & 0 & 0\\
+   0 & -34 & -3 & 0\\
+   1 & 10 & 1 & 2
+\end{pmatrix}
+\xrightarrow{A_{(1)} += 4\cdot A_{(3)}}
+\begin{pmatrix}
+   0 & 45 & 4 & 8\\
+   0 & -34 & -3 & 0\\
+   1 & 10 & 1 & 2
+\end{pmatrix}
+\\ \\ \\
+\xrightarrow{A_{(2)} += 1\cdot A_{(1)}}
+\begin{pmatrix}
+   0 & 45 & 4 & 8\\
+   0 & 11 & 1 & 8\\
+   1 & 10 & 1 & 2
+\end{pmatrix}
+\xrightarrow{A_{(1)} += (-4)\cdot A_{(2)}}
+\begin{pmatrix}
+   0 & 1 & 0 & -24\\
+   0 & 11 & 1 & 8\\
+   1 & 10 & 1 & 2
+\end{pmatrix}
+\xrightarrow{A_{(2)} += (-11)\cdot A_{(1)}}
+\begin{pmatrix}
+   0 & 1 & 0 & -24\\
+   0 & 0 & 1 & 272\\
+   1 & 10 & 1 & 2
+\end{pmatrix}
+\\ \\ \\
+\xrightarrow{A_{(3)} += (-10)\cdot A_{(1)}}
+\begin{pmatrix}
+   0 & 1 & 0 & -24\\
+   0 & 0 & 1 & 272\\
+   1 & 0 & 1 & 242
+\end{pmatrix}
+\xrightarrow{A_{(3)} += (-1)\cdot A_{(2)},\ \text{swap}(A_{(1)},A_{(3)}),\ \text{swap}(A_{(2)},A_{(3)})}
+\begin{pmatrix}
+   1 & 0 & 0 & -30\\
+   0 & 1 & 0 & -24\\
+   0 & 0 & 1 & 272
+\end{pmatrix}
+\\ \\ \\
+$
+И если применить все эти же операции к матрице $B$, то получим 
+$
+B' = 
+\begin{pmatrix}
+   -89 & -59 & 119\\
+   -70 & -47 & 92\\
+   815 & 543 & -1089
+\end{pmatrix}
+$
+\\
+Если представить $X$ в виде
+$
+\begin{pmatrix}
+x_1 & x_2 & x_3\\
+x_4 & x_5 & x_6\\
+x_7 & x_8 & x_9\\
+x_{10} & x_{11} & x_{12}\\
+\end{pmatrix}
+$
+То можно заметить, что $x_i$, $1 \leq i \leq 9$ можно выразить через $x_{10}, x_{11}, x_{12}$. И, $A' \cdot X = B'\ \implies\ X = 
+\begin{pmatrix}
+-89 + 30\cdot x_{10} & -59 + 30\cdot x_{11} & 119 + 30\cdot x_{12}\\
+-70 + 24\cdot x_{10} & -47 + 24\cdot x_{11} & 92 + 24\cdot x_{12}\\
+815 - 272\cdot x_{10} & 543 - 272\cdot x_{11} & -1089 - 272\cdot x_{12}\\
+x_{10} & x_{11} & x_{12}
+\end{pmatrix}
+$
+, где $x_{10}, x_{11}, x_{12}$ - свободные члены/любые числа.
+\section*{\WashCotton\ 2}
+$$
+\left(
+\begin{pmatrix}
+1 & 2 & 3 & 4 & 5 & 6 & 7 & 8\\
+2 & 5 & 3 & 7 & 1 & 4 & 8 & 6
+\end{pmatrix}
+^{15} \cdot
+\begin{pmatrix}
+1 & 2 & 3 & 4 & 5 & 6 & 7 & 8\\
+8 & 6 & 5 & 4 & 3 & 2 & 1 & 7
+\end{pmatrix}
+^{-1}\right)^{145} \cdot X =
+\begin{pmatrix}
+1 & 2 & 3 & 4 & 5 & 6 & 7 & 8\\
+1 & 8 & 7 & 6 & 3 & 5 & 4 & 2
+\end{pmatrix} 
+$$
+
+$$
+\begin{pmatrix}
+1 & 2 & 3 & 4 & 5 & 6 & 7 & 8\\
+2 & 5 & 3 & 7 & 1 & 4 & 8 & 6
+\end{pmatrix}^{15}
+= (1, 2, 5)^{15}\cdot(3)^{15}\cdot(4, 7, 8, 6)^{15}
+= (4, 7, 8, 6)^{-1}
+= (6, 8, 7, 4)
+$$
+
+$$
+\begin{pmatrix}
+1 & 2 & 3 & 4 & 5 & 6 & 7 & 8\\
+8 & 6 & 5 & 4 & 3 & 2 & 1 & 7
+\end{pmatrix}^{-1}
+= 
+(1, 8, 7)^{-1}\cdot (2, 6)^{-1}\cdot (3, 5)^{-1}\cdot (4)^{-1}
+=
+(7, 8, 1)\cdot (6, 2)\cdot (5, 3)
+$$
+$$
+\left( (6, 8, 7, 4) \cdot 
+\left((7, 8, 1)\cdot (6, 2)\cdot (5, 3)\right)
+\right)^{145} = ((1, 4, 6, 2, 8)\cdot(3, 5)\cdot(7))^{145}
+= (3, 5)^1 = (3, 5)
+$$
+$$
+(3, 5) \cdot X = (1)\cdot(2, 8)\cdot(3, 7, 4, 6, 5)
+$$
+$$
+X = (1)\cdot(2, 8)\cdot(3, 7, 4, 6)\cdot(5) =
+\begin{pmatrix}
+1 & 2 & 3 & 4 & 5 & 6 & 7 & 8\\
+1 & 8 & 7 & 6 & 5 & 3 & 4 & 2
+\end{pmatrix}
+$$
+я все проверил кодом, и будет \includegraphics[scale=0.1]{linal/IHW_2/pohui.jpg}, если окажется, что перестановки нужно в другом порядке перемножать
+\section*{\ShortThirty\ 3}
+$$
+\text{Посчитать количество инверсий в}\ 
+\begin{pmatrix}
+    1 & 2 & \ldots & 249 & 250 & \ldots & 323 & 324 & \ldots & 529\\
+    281 & 282 & \ldots & 529 & 207 & \ldots & 280 & 1 & \ldots & 206
+\end{pmatrix}
+$$
+Ну, давайте втупую посчитаем количество пар $i, j$, что $i < j,\ \sigma(i) > \sigma(j)$
+\\
+Вроде как видно, что есть три группы(назову их $a, b, c$) в которых все элементы идут последовательно и возрастают.
+\\
+Тогда количеством инверсий будет 
+$$\text{len}(a)\cdot(\text{len}(b) + \text{len}(c)) + \text{len}(b)\cdot\text{len}(c) = 249\cdot((323-250+1) + (529-324+1)) + (323-250+1)\cdot(529-324+1) = 
+$$
+$$
+= 249\cdot280 + 74\cdot206 = 69720+15244=84964
+$$
+\begin{center}
+    \includegraphics[scale=0.25]{linal/IHW_2/cat_meme2.jpg}
+\end{center}
+\section*{\NoWash\ 4}
+$$
+\begin{vmatrix}
+   0 & 0 & x & 0 & 0 & 8\\
+   0 & 0 & 6 & 9 & 0 & 1\\
+   1 & 4 & 0 & 7 & 8 & 4\\
+   0 & 0 & 0 & 0 & 1 & 7\\
+   x & x & 0 & 1 & 0 & x\\
+   0 & x & x & 1 & 5 & 4
+\end{vmatrix}
+\xrightarrow{A^{(6)}-=A^{(1)}, A^{(2)}-=A^{(1)}}
+\begin{vmatrix}
+   0 & 0 & x & 0 & 0 & 8\\
+   0 & 0 & 6 & 9 & 0 & 1\\
+   1 & 3 & 0 & 7 & 8 & 3\\
+   0 & 0 & 0 & 0 & 1 & 7\\
+   x & 0 & 0 & 1 & 0 & 0\\
+   0 & x & x & 1 & 5 & 4
+\end{vmatrix}
+\xrightarrow{A_{(6)}-=A_{(1)}}
+\begin{vmatrix}
+   0 & 0 & x & 0 & 0 & 8\\
+   0 & 0 & 6 & 9 & 0 & 1\\
+   1 & 3 & 0 & 7 & 8 & 3\\
+   0 & 0 & 0 & 0 & 1 & 7\\
+   x & 0 & 0 & 1 & 0 & 0\\
+   0 & x & 0 & 1 & 5 & -4
+\end{vmatrix}
+$$
+$$
+\text{разложим по первому столбцу и получим} 
+=
+\begin{vmatrix}
+   0 & x & 0 & 0 & 8\\
+   0 & 6 & 9 & 0 & 1\\
+   0 & 0 & 0 & 1 & 7\\
+   0 & 0 & 1 & 0 & 0\\
+   x & 0 & 1 & 5 & -4
+\end{vmatrix}
++ x\cdot
+\begin{vmatrix}
+   0 & x & 0 & 0 & 8\\
+   0 & 6 & 9 & 0 & 1\\
+   3 & 0 & 7 & 8 & 3\\
+   0 & 0 & 0 & 1 & 7\\
+   x & 0 & 1 & 5 & -4
+\end{vmatrix}
+= \det(A_\text{kek}) + x\cdot \det(A^\text{lol}) 
+$$
+$$
+\text{разложим}\ A_\text{kek}\ \text{по 4-й строке}.
+\begin{vmatrix}
+   0 & x & 0 & 0 & 8\\
+   0 & 6 & 9 & 0 & 1\\
+   0 & 0 & 0 & 1 & 7\\
+   0 & 0 & 1 & 0 & 0\\
+   x & 0 & 1 & 5 & -4
+\end{vmatrix}
+= 
+-1 \cdot 
+\begin{vmatrix}
+   0 & x & 0 & 8\\
+   0 & 6 & 0 & 1\\
+   0 & 0 & 1 & 7\\
+   x & 0 & 5 & -4
+\end{vmatrix}
+\underset{
+    \text{извините...}
+}{
+    \overset{
+        \text{два равно}
+    }{
+        \overset{
+            \text{выглядят всрато}
+        }{
+            \overset{
+                A^{(4)}-=7\cdot A^{(3)}
+            }{
+                =
+            }
+        }
+    }
+}
+-1\cdot
+\begin{vmatrix}
+   0 & x & 0 & 8\\
+   0 & 6 & 0 & 1\\
+   0 & 0 & 1 & 0\\
+   x & 0 & 5 & -39
+\end{vmatrix} =
+$$
+$$
+\det(A_\text{kek}) \overset{\text{разложим по 3-й строке}}{=}
+-1\cdot
+\begin{vmatrix}
+   0 & x & 8\\
+   0 & 6 & 1\\
+   x & 0 & -39
+\end{vmatrix}
+\overset{\text{и по 1-му столбцу..}}{=}
+-x\cdot
+\begin{vmatrix}
+    x & 8\\
+    6 & 1\\
+\end{vmatrix}
+= -x\cdot (x-48) = -x^2+48x
+$$
+Блять я уже второй день подряд только идз делаю, убейте(9(((
+\\
+\includegraphics[width=0.3\textwidth]{linal/IHW_2/cat_meme.jpg}
+\includegraphics[width=0.3\textwidth]{linal/IHW_2/self_suck.jpg}
+\\
+$$
+\det(A^\text{lol}) =
+\begin{vmatrix}
+   0 & x & 0 & 0 & 8\\
+   0 & 6 & 9 & 0 & 1\\
+   3 & 0 & 7 & 8 & 3\\
+   0 & 0 & 0 & 1 & 7\\
+   x & 0 & 1 & 5 & -4
+\end{vmatrix}
+\overset{A^{(5)}-=7\cdot A^{(4)}}{=}
+\begin{vmatrix}
+   0 & x & 0 & 0 & 8\\
+   0 & 6 & 9 & 0 & 1\\
+   3 & 0 & 7 & 8 & -53\\
+   0 & 0 & 0 & 1 & 0\\
+   x & 0 & 1 & 5 & -39
+\end{vmatrix}
+\overset{\text{разложение по} A_{(4)}}{=}
+\begin{vmatrix}
+   0 & x & 0 & 8\\
+   0 & 6 & 9 & 1\\
+   3 & 0 & 7 & -53\\
+   x & 0 & 1 & -39
+\end{vmatrix}
+$$
+я сходил в магазин, пришел обратно, и мне сказал чел из 205-й группы что авдос им сказал что на*** не нужно раскладывать по строке, когда в ней 2 элемента есть, а ***рить гауса чтобы получался 1 элемент в строке. *стер следующие n строк теха и делаю по новой...*
+\\
+\includegraphics[scale=0.25]{linal/IHW_2/stronk_phrase.jpg}
+\\
+$$
+=\frac{1}{x}\cdot
+\begin{vmatrix}
+   0 & x & 0 & 8\\
+   0 & 6 & 9 & 1\\
+   3x & 0 & 7x & -53x\\
+   x & 0 & 1 & -39
+\end{vmatrix}
+=\frac{1}{x}\cdot
+\begin{vmatrix}
+   0 & x & 0 & 8\\
+   0 & 6 & 9 & 1\\
+   0 & 0 & 7x-3 & -53x+117\\
+   x & 0 & 1 & -39
+\end{vmatrix}
+= -\frac{1}{x}\cdot
+\begin{vmatrix}
+   x & 0 & 1 & -39\\
+   0 & 6 & 9 & 1\\
+   0 & 0 & 7x-3 & -53x+117\\
+   0 & x & 0 & 8
+\end{vmatrix}
+$$
+$$
+= -1\cdot
+\begin{vmatrix}
+   6 & 9 & 1\\
+   0 & 7x-3 & -53x+117\\
+   x & 0 & 8
+\end{vmatrix}
+= -\frac{1}{x}
+\begin{vmatrix}
+   6x & 9x & x\\
+   0 & 7x-3 & -53x+117\\
+   x & 0 & 8
+\end{vmatrix}
+= -\frac{1}{x}
+\begin{vmatrix}
+   0 & 9x & x-48\\
+   0 & 7x-3 & -53x+117\\
+   x & 0 & 8
+\end{vmatrix}
+$$
+$$
+= \frac{1}{x}
+\begin{vmatrix}
+    x & 0 & 8\\
+    0 & 7x-3 & -53x+117\\
+    0 & 9x & x-48
+\end{vmatrix}
+=
+\begin{vmatrix}
+    7x-3 & -53x+117\\
+    9x & x-48
+\end{vmatrix}
+= (7x-3)\cdot(x-48)+9x\cdot(53x-117)
+$$
+$$
+=7x^2-3x-336x+144+477x^2-1053x= 484x^2-1392x+144
+$$
+$$
+\det(A_\text{kek}) + x\cdot\det(A^\text{lol}) = -x^2+48x + x\cdot(484x^2-1392x+144) = 484x^3-1393x^2+192x
+$$
+тыкни на носик:3 \href{http://matrixcalc.org/#determinant\%28\%7B\%7B0,0,x,0,0,8\%7D,\%7B0,0,6,9,0,1\%7D,\%7B1,4,0,7,8,4\%7D,\%7B0,0,0,0,1,7\%7D,\%7Bx,x,0,1,0,x\%7D,\%7B0,x,x,1,5,4\%7D\%7D\%29}{\includegraphics[scale=0.25]{linal/IHW_2/heznaya_zapekanka+pyshnie_sirniki.jpg}}
+\section*{\HandWash\ 5}
+$
+\overbrace{\overset{\text{бряяя) \faWheelchairAlt дикий разгон)}}{\text{хихихихихихихихи\faUniversalAccessхихихихихихихихи}}}{\overset{\text{все права на этот документ принадлежат жопа \faVenusDouble корпорейтед}}{\text{АХАХАХАХАХ\ АХАХАХАХАХАХАХАХАХАХАХАХАХАХАХАХАХАХАХАХАХ}}}
+$
+\\
+$$
+\begin{vmatrix}
+    5 & x & 7 & 0 & 6 & 3 & 1\\
+    x & 5 & 6 & 0 & 5 & 2 & x\\
+    7 & 6 & 7 & 6 & 7 & x & 1\\
+    0 & 0 & 6 & 7 & x & 3 & 3\\
+    6 & 5 & 7 & x & 2 & 7 & 3\\
+    3 & 2 & x & 3 & 7 & 4 & 5\\
+    1 & x & 1 & 3 & 3 & 5 & 9
+\end{vmatrix}
+=
+\begin{vmatrix}
+    4 & 0 & 6 & -3 & 3 & -2 & -8\\
+    x & 5 & 6 & 0 & 5 & 2 & x\\
+    7 & 6 & 7 & 6 & 7 & x & 1\\
+    0 & 0 & 6 & 7 & x & 3 & 3\\
+    6 & 5 & 7 & x & 2 & 7 & 3\\
+    3 & 2 & x & 3 & 7 & 4 & 5\\
+    1 & x & 1 & 3 & 3 & 5 & 9
+\end{vmatrix}
+=
+\begin{vmatrix}
+    12 & 0 & 6 & -3 & 3 & -2 & -8\\
+    0 & 5 & 6 & 0 & 5 & 2 & x\\
+    6 & 6 & 7 & 6 & 7 & x & 1\\
+    -3 & 0 & 6 & 7 & x & 3 & 3\\
+    3 & 5 & 7 & x & 2 & 7 & 3\\
+    -2 & 2 & x & 3 & 7 & 4 & 5\\
+    -8 & x & 1 & 3 & 3 & 5 & 9
+\end{vmatrix}
+$$
+Посмотрим, что будет если мы будем считать определитель руками.
+\\
+Допустим, в первой строке мы взяли первый элемент. Тогда, если потом взять какой-то элемент не равный $x$, то мы сможем максимум получить степень $x^4$. А если мы будем все время брать $x$, то получим $x^6$. То бишь ничего нам не подходит.
+\\
+Допустим, в первой строке мы взяли какой-то элемент $\in [2; 7]$. Тогда Во всех оставшихся строках останется $5$ иксов, и мы сможем однозначно определить, какую перестановку нам нужно взять, чтобы получить $x^5$.
+\\
+Ну штош, посчитаем это гавно... Посмотрим какие перестановки и какие элементы мы возьмем.
+\\
+$$ 
+  \text{sgn}(2, 7, 6, 5, 4, 3, 1)\cdot0x^5\cdot(-8) +
+$$
+$$
++ \text{sgn}(3, 7, 6, 5, 4, 1, 2)\cdot6x^4\cdot(-2)x^1 +
+$$
+$$
++ \text{sgn}(4, 7, 6, 5, 1, 3, 2)\cdot(-3)x^3\cdot3x^2 +
+$$
+$$
++ \text{sgn}(5, 7, 6, 1, 4, 3, 2)\cdot3x^2\cdot(-3)x^3 +
+$$
+$$
++ \text{sgn}(6, 7, 1, 5, 4, 3, 2)\cdot(-2)x^1\cdot6x^4 +
+$$
+$$
++ \text{sgn}(7, 1, 6, 5, 4, 3, 2)\cdot(-8)\cdot0x^5 =
+$$
+$$
+= -12x^5(\text{sgn}(3, 7, 6, 5, 4, 1, 2) + \text{sgn}(6, 7, 1, 5, 4, 3, 2)) -9x^5(\text{sgn}(4, 7, 6, 5, 1, 3, 2) + \text{sgn}(5, 7, 6, 1, 4, 3, 2)) = 
+$$
+$$
+= -12x^5((-1)^{16} + (-1)^{16}) - 9x^5((-1)^{16} + (-1)^{16})
+$$
+$$
+= -24x^5 - 18x^5 = -42x^5
+$$
+Выходит, что коэффициент при $x^5$ равен $-42$.
+\\
+Anyway, it's getting late. Goodnight <3
+\\
+\includegraphics[scale=0.5]{linal/IHW_2/turtle_concrete.jpg}
+\end{document}
+

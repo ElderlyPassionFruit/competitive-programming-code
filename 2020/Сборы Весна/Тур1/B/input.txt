@@ -1,0 +1,13 @@
+
+3 4 
+PWWP
+WWWW
+PGGP
+
+
+3 4 
+PWGP 
+WGPW 
+GWPG
+
+

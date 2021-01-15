@@ -1,0 +1,13 @@
+4 4 
+RGWR
+GRRG
+WGGW
+WWWR
+
+
+3 4
+RGWR
+GRGG
+RGWW
+
+

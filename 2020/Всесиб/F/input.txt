@@ -1,0 +1,700 @@
+91 698
+baccbbbbcabcabccaccbccbacabaabbcbbbccbacbcbbabcaaacbaccabbbccababccccacaaacabcbbacccacabaab
+set 60 79 c
+set 72 81 c
+ask 71 73
+ask 83 85
+set 81 83 a
+ask 55 65
+set 54 87 c
+ask 48 79
+ask 62 84
+set 80 91 a
+set 87 89 a
+set 39 84 b
+set 49 71 b
+ask 20 80
+ask 28 44
+set 53 64 c
+ask 45 72
+set 48 52 b
+set 45 89 b
+set 23 42 c
+ask 91 91
+set 67 74 c
+set 80 88 a
+ask 32 74
+ask 72 72
+ask 62 64
+ask 19 49
+ask 78 81
+set 53 82 a
+set 10 19 b
+ask 19 77
+set 16 73 a
+set 67 75 b
+ask 69 86
+ask 74 81
+set 64 82 b
+ask 9 86
+set 38 68 c
+set 9 82 b
+set 41 68 c
+ask 89 90
+ask 51 51
+ask 59 87
+ask 8 23
+ask 18 57
+ask 64 77
+set 46 89 c
+ask 74 84
+set 78 86 a
+set 68 81 a
+set 81 83 a
+ask 5 39
+ask 41 76
+set 9 45 a
+set 68 72 a
+ask 62 66
+set 23 74 c
+ask 15 35
+set 40 48 a
+set 64 85 c
+ask 85 85
+set 1 47 c
+set 62 63 a
+set 39 80 c
+set 90 90 a
+set 49 82 c
+set 82 82 c
+set 62 81 b
+set 10 91 b
+ask 51 70
+set 2 35 b
+ask 68 90
+set 33 48 c
+ask 10 27
+ask 86 91
+ask 5 35
+set 19 68 b
+set 11 33 a
+ask 33 60
+set 48 74 b
+ask 48 73
+set 15 49 b
+set 39 86 b
+ask 78 90
+ask 5 42
+ask 13 13
+set 61 66 a
+set 33 81 a
+set 16 67 c
+ask 36 82
+ask 9 39
+set 23 42 c
+ask 71 88
+set 55 70 c
+set 70 77 b
+ask 17 88
+set 5 14 a
+ask 84 87
+set 80 89 c
+ask 38 69
+ask 23 42
+ask 86 89
+set 45 78 b
+set 59 67 c
+set 42 51 c
+ask 65 76
+set 73 87 c
+set 57 84 c
+set 80 87 c
+set 59 78 a
+set 8 70 c
+ask 58 69
+ask 70 90
+ask 77 85
+set 10 85 c
+ask 33 55
+ask 89 89
+ask 46 89
+ask 53 80
+ask 50 53
+ask 67 73
+ask 37 55
+ask 18 43
+ask 71 82
+set 20 57 a
+set 35 71 b
+ask 60 61
+set 3 55 b
+set 86 90 c
+set 68 73 b
+ask 86 89
+ask 77 90
+ask 87 90
+set 3 81 a
+set 69 85 c
+ask 5 50
+ask 20 58
+ask 38 61
+ask 67 86
+set 77 81 c
+set 70 84 b
+set 55 68 a
+set 58 87 a
+set 8 44 b
+set 52 64 a
+ask 4 60
+ask 69 88
+ask 69 70
+set 34 48 b
+ask 36 53
+set 13 16 c
+ask 5 44
+set 56 80 b
+set 46 79 b
+ask 68 82
+ask 49 89
+set 31 73 b
+ask 3 48
+set 15 73 c
+set 20 71 b
+set 34 48 a
+ask 44 88
+ask 25 35
+ask 29 39
+set 23 76 c
+ask 55 86
+set 90 90 b
+set 51 73 c
+ask 3 3
+ask 7 75
+set 84 89 b
+ask 49 80
+ask 51 71
+ask 8 61
+set 20 33 a
+set 7 26 b
+ask 70 77
+ask 37 42
+set 23 42 b
+set 58 85 c
+ask 61 91
+ask 33 75
+ask 18 57
+set 4 69 c
+set 77 81 a
+set 7 84 a
+ask 79 82
+set 23 72 b
+ask 76 86
+ask 27 50
+ask 68 73
+ask 47 60
+set 41 81 a
+set 85 89 a
+set 45 73 c
+set 60 71 c
+ask 33 57
+ask 89 90
+ask 43 84
+ask 18 47
+ask 20 52
+ask 19 61
+ask 3 48
+ask 10 10
+set 90 91 b
+set 84 87 c
+set 58 70 b
+ask 46 74
+ask 17 68
+ask 73 82
+set 11 33 a
+set 55 63 b
+set 66 85 c
+set 17 34 c
+ask 69 86
+set 78 79 b
+set 86 87 b
+ask 87 91
+set 45 72 a
+ask 86 89
+set 32 48 a
+ask 44 83
+ask 32 83
+set 52 57 c
+set 71 77 b
+set 38 43 a
+set 90 90 a
+set 4 36 a
+set 33 79 b
+set 88 88 c
+ask 12 29
+set 73 88 b
+set 30 60 c
+ask 64 80
+set 61 76 a
+set 15 90 b
+set 20 40 a
+ask 77 82
+set 19 50 a
+ask 39 40
+ask 56 59
+ask 6 57
+set 53 54 a
+ask 47 60
+ask 26 79
+set 42 82 a
+ask 81 84
+ask 54 86
+ask 4 84
+ask 2 12
+set 70 86 c
+ask 72 89
+ask 63 69
+set 23 81 a
+set 82 91 a
+ask 33 79
+ask 28 38
+ask 24 90
+set 84 84 b
+set 61 81 b
+ask 28 38
+set 30 70 c
+set 66 68 c
+ask 62 91
+set 62 65 c
+ask 2 71
+set 43 90 a
+set 32 34 b
+ask 11 86
+ask 66 83
+ask 8 8
+set 59 84 b
+ask 89 89
+ask 54 87
+ask 40 56
+ask 69 89
+set 12 59 b
+set 47 63 a
+set 55 61 a
+set 1 80 b
+ask 72 91
+set 31 65 a
+set 37 65 a
+ask 51 87
+ask 79 85
+ask 91 91
+set 84 91 c
+ask 45 55
+set 30 54 b
+set 11 40 b
+ask 54 60
+ask 18 31
+set 43 54 a
+ask 36 50
+set 58 65 a
+set 30 46 c
+ask 37 62
+ask 61 71
+set 43 71 b
+set 3 35 a
+set 77 88 c
+set 71 81 c
+set 27 74 c
+ask 77 89
+ask 83 88
+set 29 34 b
+ask 36 87
+set 77 78 a
+set 73 81 b
+ask 74 78
+set 78 81 a
+set 27 51 c
+set 64 85 b
+set 34 84 c
+ask 52 77
+ask 57 77
+set 34 70 a
+ask 76 83
+ask 4 44
+set 64 86 a
+set 25 75 c
+ask 55 88
+set 51 74 c
+set 10 82 a
+ask 59 71
+set 46 50 b
+ask 65 69
+ask 41 78
+set 50 59 a
+ask 82 84
+set 29 30 a
+ask 76 87
+ask 6 36
+set 91 91 b
+set 46 82 b
+set 1 40 c
+set 70 79 a
+ask 29 39
+ask 33 70
+ask 5 18
+ask 38 60
+set 67 86 a
+set 20 81 a
+set 33 70 c
+ask 34 72
+ask 37 59
+ask 31 65
+ask 48 66
+ask 9 69
+ask 55 80
+set 82 88 b
+ask 13 82
+ask 86 87
+set 62 91 c
+set 34 72 b
+set 62 84 a
+set 90 90 a
+set 9 50 a
+set 12 16 a
+ask 74 85
+set 28 65 b
+set 52 66 c
+set 47 58 c
+set 67 80 c
+ask 11 33
+ask 23 36
+ask 25 73
+ask 23 65
+ask 6 73
+ask 26 52
+ask 33 57
+ask 83 84
+ask 8 61
+set 34 45 a
+set 23 28 a
+set 17 42 a
+ask 60 82
+ask 54 69
+ask 57 77
+ask 59 71
+ask 17 41
+ask 74 89
+set 62 91 b
+set 43 62 c
+set 58 73 c
+set 65 67 b
+set 12 66 c
+ask 71 72
+ask 42 86
+set 10 56 c
+ask 28 45
+ask 56 77
+set 31 80 a
+set 58 68 a
+ask 8 23
+set 86 89 c
+set 38 73 b
+set 36 63 c
+ask 29 59
+set 87 91 c
+ask 78 82
+ask 20 72
+set 27 70 b
+ask 9 52
+set 49 49 a
+ask 2 41
+ask 58 63
+set 80 87 c
+set 78 79 c
+set 41 54 c
+set 72 83 c
+set 35 67 a
+ask 29 41
+ask 57 77
+ask 42 87
+set 30 69 a
+ask 48 58
+ask 34 85
+set 59 89 c
+set 3 42 a
+set 87 89 a
+ask 79 87
+ask 55 57
+ask 14 89
+ask 52 61
+ask 54 59
+set 33 81 b
+ask 56 85
+set 35 44 b
+ask 3 25
+set 48 56 b
+ask 26 64
+set 36 61 b
+set 69 90 c
+ask 56 69
+set 71 88 b
+set 79 86 a
+ask 12 35
+set 10 72 a
+set 39 54 b
+set 46 80 b
+ask 29 78
+ask 72 84
+ask 61 63
+set 47 54 a
+set 15 48 a
+set 81 81 c
+set 64 65 b
+ask 58 87
+ask 84 91
+set 34 75 b
+set 15 30 b
+set 91 91 c
+ask 18 23
+set 78 83 a
+set 83 84 a
+ask 78 81
+ask 33 81
+ask 72 83
+ask 57 59
+ask 58 86
+set 56 78 a
+set 86 91 a
+set 48 62 a
+set 49 79 c
+set 53 61 b
+ask 7 75
+ask 52 60
+ask 7 54
+ask 42 64
+ask 16 70
+set 10 58 a
+set 13 45 c
+set 71 74 c
+set 43 54 a
+ask 62 91
+set 76 79 b
+set 60 77 a
+ask 55 63
+set 25 72 a
+set 54 60 a
+ask 21 80
+set 30 66 b
+set 43 44 a
+ask 54 54
+ask 38 62
+set 68 78 b
+set 46 59 a
+set 67 74 a
+set 21 56 b
+set 24 84 c
+set 33 60 b
+ask 68 74
+set 22 79 b
+set 31 87 b
+set 40 86 a
+ask 29 40
+set 75 86 c
+ask 42 69
+ask 18 22
+ask 71 90
+set 58 90 a
+ask 88 89
+ask 87 89
+set 47 89 c
+set 69 76 a
+ask 83 86
+ask 78 80
+ask 58 82
+set 29 48 a
+set 26 40 c
+ask 89 89
+ask 71 82
+ask 73 88
+set 68 84 c
+set 43 68 b
+set 83 90 a
+set 72 72 b
+set 4 82 a
+ask 58 90
+set 46 83 c
+ask 4 86
+set 81 87 b
+set 65 68 a
+ask 89 89
+set 42 67 b
+set 79 91 a
+ask 40 47
+set 31 72 c
+ask 2 20
+set 76 87 c
+set 56 65 a
+ask 48 68
+set 33 88 a
+set 88 88 c
+ask 44 46
+ask 4 51
+ask 65 82
+set 34 59 a
+set 6 21 c
+ask 55 91
+ask 29 82
+ask 68 80
+set 35 44 a
+set 40 49 a
+ask 77 86
+ask 19 22
+set 19 86 c
+set 84 90 c
+ask 42 45
+set 42 72 b
+set 47 77 c
+ask 23 64
+ask 18 27
+set 68 82 b
+set 59 62 c
+set 47 75 c
+set 32 62 a
+ask 34 39
+set 19 69 a
+set 25 74 c
+ask 24 39
+ask 76 81
+ask 87 89
+ask 42 52
+set 52 87 a
+set 76 86 b
+set 8 39 a
+set 81 89 b
+ask 86 86
+set 34 66 b
+set 64 90 c
+ask 74 82
+set 46 70 a
+ask 17 24
+set 88 90 c
+set 57 83 a
+ask 34 66
+set 37 84 a
+ask 35 45
+ask 70 85
+ask 14 54
+set 87 89 b
+set 35 50 c
+set 10 28 a
+ask 56 70
+set 38 91 a
+ask 54 69
+set 15 47 a
+ask 4 29
+set 61 78 c
+set 40 83 a
+set 1 13 b
+ask 32 54
+ask 80 89
+set 45 86 a
+ask 89 90
+set 52 88 b
+set 53 54 c
+set 5 34 a
+ask 60 88
+set 42 63 c
+ask 7 56
+set 31 77 c
+ask 88 90
+ask 70 89
+set 37 91 c
+ask 76 76
+set 66 88 a
+ask 52 52
+ask 88 89
+set 68 68 c
+ask 9 66
+ask 82 87
+ask 31 87
+ask 73 90
+set 19 47 c
+set 26 52 b
+ask 31 36
+ask 49 63
+ask 33 71
+set 33 60 c
+set 82 88 c
+ask 52 80
+set 28 51 c
+ask 23 35
+ask 44 50
+ask 36 64
+ask 47 79
+ask 50 91
+ask 12 53
+ask 72 78
+set 79 80 c
+set 46 59 c
+ask 18 18
+ask 8 18
+set 46 54 b
+set 90 91 a
+set 3 84 c
+ask 58 76
+ask 3 84
+set 20 78 a
+set 58 87 c
+set 80 91 c
+set 83 89 a
+set 32 54 a
+set 59 88 c
+ask 38 72
+ask 31 79
+set 56 58 a
+set 10 17 a
+ask 14 31
+ask 62 67
+set 74 89 b
+set 39 70 a
+set 80 82 b
+set 15 23 a
+set 17 40 a
+ask 63 88
+ask 54 60
+ask 21 30
+set 38 71 b
+set 50 57 a
+set 10 55 b
+ask 28 40
+ask 91 91
+ask 85 89
+ask 78 91
+ask 54 78
+ask 7 22
+set 55 89 c
+set 24 78 c
+set 11 14 c
+set 90 90 a
+ask 30 32
+ask 50 81
+ask 60 80
+ask 84 86
+set 81 89 c
+set 8 86 b
+ask 50 67
+set 52 83 c
+set 26 72 c
+set 71 78 a
+set 88 88 c
+set 89 89 a
+ask 32 76
+set 17 86 a
+set 14 33 b
+ask 91 91
+ask 37 72
+ask 87 90
+ask 60 81
+set 28 32 b
+ask 62 67
+set 56 75 c
+set 22 70 c
+set 5 17 a

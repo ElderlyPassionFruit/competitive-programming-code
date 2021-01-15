@@ -1,0 +1,1094 @@
+% \usepackage[utf8]{inputenc}
+\usepackage[english,russian]{babel}
+\usepackage{graphicx}
+\usepackage{amsmath, amsthm, amssymb, mathtools}
+\usepackage[T2A]{fontenc}
+\usepackage{enumitem}
+\usepackage[margin=0.6in]{geometry}
+\usepackage[usenames]{color}
+\usepackage{colortbl}
+\linespread{1.1}
+\usepackage{gensymb}
+
+\usepackage{cellspace}
+\usepackage[linkcolor=blue,colorlinks=true]{hyperref}
+
+\usepackage{mleftright,xparse}
+\usepackage{yhmath}
+
+\usepackage{etoolbox}
+\apptocmd{\lim}{\limits}{}{}
+\apptocmd{\sum}{\limits}{}{}
+\apptocmd{\int}{\limits}{}{}
+\apptocmd{\prod}{\limits}{}{}
+\apptocmd{\inf}{\limits}{}{}
+\apptocmd{\int}{\limits}{}{}
+\apptocmd{\iint}{\limits}{}{}
+
+
+\NewDocumentCommand\xDeclarePairedDelimiter{mmm}
+{%
+ \NewDocumentCommand#1{som}{%
+  \IfNoValueTF{##2}
+   {\IfBooleanTF{##1}{#2##3#3}{\mleft#2##3\mright#3}}
+   {\mathopen{##2#2}##3\mathclose{##2#3}}%
+ }%
+}
+
+\let\originaleqref\eqref % or \let\originaleqref\ref to drop parens
+\makeatletter
+\renewcommand{\eqref}[1]{%
+  \begingroup%
+  \let\ref\@refstar%
+  \hyperref[#1]{\originaleqref{#1}}%
+  \endgroup
+}
+\makeatother
+
+\DeclareMathOperator{\rng}{rng}
+\DeclareMathOperator{\comb}{C}
+\DeclareMathOperator{\mexp}{\mathbb{E}}
+\DeclareMathOperator{\var}{\mathbb{D}}
+\DeclareMathOperator{\prob}{\mathsf{P}}
+\DeclareMathOperator{\const}{const}
+\renewcommand{\geq}{\geqslant}
+\renewcommand{\leq}{\leqslant}
+\DeclareMathOperator{\isgeq}{\overset{?}{\geq}}
+\DeclareMathOperator{\isgt}{\overset{?}{>}}
+\DeclareMathOperator{\isleq}{\overset{?}{\leq}}
+\DeclareMathOperator{\islt}{\overset{?}{<}}
+\DeclareMathOperator{\RR}{\mathbb{R}}
+\DeclareMathOperator{\NN}{\mathbb{N}}
+\DeclareMathOperator{\QQ}{\mathbb{Q}}
+\DeclareMathOperator{\ZZ}{\mathbb{Z}}
+\DeclareMathOperator{\CC}{\mathbb{C}}
+\DeclareMathOperator{\dom}{dom}
+\DeclareMathOperator{\Pois}{Pois}
+\DeclareMathOperator{\cov}{cov}
+
+\xDeclarePairedDelimiter{\abs}{\lvert}{\rvert}
+
+
+% \documentclass[a4paper]{article}
+% % \usepackage{header}
+% \newcommand{\Mat}{\operatorname{Mat}}
+% \newcommand{\M}{\operatorname{M}}
+% % \allowdisplaybreaks
+
+% %% Графика
+% \usepackage{graphicx}       
+% \graphicspath{{images/}}            
+% \usepackage{tikz}  
+% \usetikzlibrary{patterns}                 
+% \usepackage{pgfplots}              
+% \usepackage{circuitikz}
+% \usepackage{bm}
+% \usepackage{amsmath}
+% \usepackage{dsfont}
+% \usepackage{amssymb}           
+
+% \usetikzlibrary{quotes,angles}
+% \usetikzlibrary{positioning,intersections}
+% \usetikzlibrary{through}
+
+% \textwidth=19.0cm \oddsidemargin=-1.3cm
+% \textheight=25cm \topmargin=-2.5cm
+
+% % \newtheorem{task}{Задание}
+% % \newtheorem*{task*}{Задание}
+
+% % \theoremstyle{remark}
+
+% % \newtheorem{remark}{Замечание}
+% % \newtheorem*{remark*}{Замечание}
+% % \newtheorem{commentarium}{Комментарий}
+% % \newtheorem*{commentarium*}{Комментарий}
+
+\usepackage{tikz-cd}
+
+\newenvironment{sysmatrix}[1]
+{
+    \left(\begin{array}{@{}#1@{}}
+}
+{\end{array}\right)}
+\newcommand{\smt}[2]{\begin{sysmatrix}{#1} #2\end{sysmatrix}}
+\newcommand{\eq}[1]{\begin{cases} #1 \end{cases}}
+
+\newcommand{\elon}[3]{%
+  \ensuremath{\text{Э}_1(#1,\; #2,\; #3)}%
+}
+\newcommand{\eltw}[2]{%
+  \ensuremath{\text{Э}_2(#1,\; #2)}%
+}
+\newcommand{\elth}[2]{%
+  \ensuremath{\text{Э}_3(#1,\; #2)}%
+}
+ 
+\newcommand{\eqon}[3]{%
+  \ensuremath{\overset{\text{Э}_1(#1,\; #2,\; #3)}{=}}%
+}
+\newcommand{\eqtw}[2]{%
+  \ensuremath{\overset{\text{Э}_2(#1,\; #2)}{=}}%
+}
+\newcommand{\eqth}[2]{%
+  \ensuremath{\overset{\text{Э}_3(#1,\; #2)}{=}}%
+}
+
+\newcommand{\arron}[3]{%
+  \ensuremath{\xrightarrow{\text{Э}_1(#1,\; #2,\; #3)}}%
+}
+\newcommand{\arrtw}[2]{%
+  \ensuremath{\xrightarrow{\text{Э}_2(#1,\; #2)}}%
+}
+\newcommand{\arrth}[2]{%
+  \ensuremath{\xrightarrow{\text{Э}_3(#1,\; #2)}}%
+}
+
+% \makeatletter
+% \renewcommand*\env@matrix[1][*\c@MaxMatrixCols c]{%
+%   \hskip -\arraycolsep
+%   \let\@ifnextchar\new@ifnextchar
+%   \array{#1}}
+% \makeatother
+
+
+\title{ИДЗ-3\\Вариант \textnumero 20}
+\author{    
+        % ОТКОММЕНТИРУЙ СЕБЯ
+    % % Александр Богданов   \\ \href{https://t.me/SphericalPotatoInVacuum}{Telegram} \and
+    % Алиса Вернигор       \\ \href{https://t.me/allisyonok}{Telegram} \and
+    % % Анастасия Григорьева \\ \href{https://t.me/weifoll}{Telegram} \and
+    % Василий Шныпко       \\ \href{https://t.me/yourvash}{Telegram} \and
+    % % Данил Казанцев       \\ \href{https://t.me/vserosbuybuy}{Telegram} \and
+    % Денис Козлов         \\ \href{https://t.me/DKozl50}{Telegram} \and
+    % Елизавета Орешонок   \\ \href{https://t.me/eaoresh}{Telegram} \and
+    % % Иван Пешехонов       \\ \href{https://t.me/JohanDDC}{Telegram} \and
+    % % Иван Добросовестнов  \\ \href{https://t.me/ivankot13}{Telegram} \and
+    % % Настя Городилова     \\ \href{https://t.me/nastygorodi}{Telegram} \and
+    % Никита Насонков      \\ \href{https://t.me/nnv_nick}{Telegram} \and
+    % Даниэль Хайбулин      \\ \href{https://t.me/kiDaniel}{Telegram} \and
+    % Сергей Лоптев        \\ \href{https://t.me/beast_sl}{Telegram} \and
+    % Оля Козлова        \\ \href{https://t.me/grenlayk}{Telegram}
+    % Сабина Даянова        \\ \href{https://t.me/sabinadayanova}{Telegram} \and
+    Игорь Маркелов \\ \href{https://t.me/ElderlyPassionFruit}{Telegram}
+}
+
+\date{}
+
+\begin{document}
+    \maketitle
+
+    \section*{Тестовая Задача}
+        \left
+        \begin{align*}
+        \left \smt{cccccc|c}{
+            1 & 2 & 0 & 0 & 0 & 0 & 0 \\
+            0 & -1 & 3 & 1 & 2 & 0 & 0 \\ 
+            0 & 0 & 0 & 0 & -1 & 3 & 0
+          }
+        \end{align*}
+
+    \section*{Задача \textnumero 1}
+        Для решения данной чудесной задачи мне нужен гениальный алгоритм от Дмитрия Витальевича Трушина 
+        по разложению матрицы $A$ в $rk(A)$ матриц $x_i, {rk(x_i)=1}$.
+        В начале рассмотрим подпространство в $\mathds{F}^5$ натянутое на вектор-стобцы данной матрицы. Выделим среди данных столбцов базис, и выразим оставшиеся (зависимые) столбцы через базисные.
+        % \begin{multline*}
+        %   \smt{cccccc|c}{
+        %     1 & 2 & 0 & 0 & 0 & 0 & 0 \\
+        %     0 & -1 & 3 & 1 & 2 & 0 & 0 \\ 
+        %     0 & 0 & 0 & 0 & -1 & 3 & 0
+        %   } \overset{\elth{3}{-1}}{\arron{1}{2}{2}} \smt{cccccc|c}{
+        %     1 & 0 & 6 & 2 & 4 & 0 & 0 \\
+        %     0 & -1 & 3 & 1 & 2 & 0 & 0 \\
+        %     0 & 0 & 0 & 0 & 1 & -3 & 0
+        %   } \overset{\elon{1}{3}{-4}}{\arron{2}{3}{-2}} \\
+        %   \overset{\elon{1}{3}{-4}}{\arron{2}{3}{-2}} \smt{cccccc|c}{
+        %     1 & 0 & 6 & 2 & 0 & 12 & 0 \\
+        %     0 & -1 & 3 & 1 & 0 & 6 & 0 \\
+        %     0 & 0 & 0 & 0 & 1 & -3 & 0
+        %   } \arrth{2}{-1} \smt{cccccc|c}{
+        %     1 & 0 & 6 & 2 & 0 & 12 & 0 \\
+        %     0 & 1 & -3 & -1 & 0 & -6 & 0 \\
+        %     0 & 0 & 0 & 0 & 1 & -3 & 0
+        %   }
+        % \end{multline*}
+    %     \begin{multline*}    
+    %         \smt{ccccc}{
+    %         -1 & 5 & -16 & -5 & 11\\
+    %         1 & 1 & 3 & 5 & -3\\
+    %         3 & 5 & 6 & -1 & -1\\
+    %         1 & -7 & 21 & -3 & -11\\
+    %         2 & 6 & -2 & 2 & 2
+    %         } \arrth{5}{\frac{1}{2}} \smt{ccccc}{
+    %         -1 & 5 & -16 & -5 & 11\\
+    %         1 & 1 & 3 & 5 & -3\\
+    %         3 & 5 & 6 & -1 & -1\\
+    %         1 & -7 & 21 & -3 & -11\\
+    %         1 & 3 & -1 & 1 & 1
+    %         } \arrtw{1}{5} \smt{ccccc}{
+    %         1 & 3 & -1 & 1 & 1\\
+    %         1 & 1 & 3 & 5 & -3\\
+    %         3 & 5 & 6 & -1 & -1\\
+    %         1 & -7 & 21 & -3 & -11\\
+    %         -1 & 5 & -16 & -5 & 11
+    %         } \\ \overset{\elon{2}{1}{-1}}{\overset{\elon{3}{1}{-3}}{\overset{\elon{4}{1}{-1}}{\arron{5}{1}{1}}}} \smt{ccccc}{
+    %         1 & 3 & -1 & 1 & 1\\
+    %         0 & -2 & 4 & 4 & -4\\
+    %         0 & -4 & 9 & -4 & -4\\
+    %         0 & -10 & 22 & -4 & -12\\
+    %         0 & 8 & -17 & -4 & 12
+    %         } \overset{\elth{2}{-\frac{1}{2}}}{\arrth{4}{-\frac{1}{2}}} \smt{ccccc}{
+    %         1 & 3 & -1 & 1 & 1\\
+    %         0 & 1 & -2 & -2 & 2\\
+    %         0 & -4 & 9 & -4 & -4\\
+    %         0 & 5 & -11 & 2 & 6\\
+    %         0 & 8 & -17 & -4 & 12
+    %         } \overset{\elon{3}{2}{4}}{\overset{\elon{4}{2}{-5}}{\arron{5}{2}{-8}}} \smt{ccccc}{
+    %         1 & 3 & -1 & 1 & 1\\
+    %         0 & 1 & -2 & -2 & 2\\
+    %         0 & 0 & 1 & -12 & 4\\
+    %         0 & 0 & -1 & 12 & -4\\
+    %         0 & 0 & -1 & 12 & -4
+    %         } \\ \overset{\elon{4}{3}{1}}{\arron{5}{3}{1}} \smt{ccccc}{
+    %         1 & 3 & -1 & 1 & 1\\
+    %         0 & 1 & -2 & -2 & 2\\
+    %         0 & 0 & 1 & -12 & 4\\
+    %         0 & 0 & 0 & 0 & 0\\
+    %         0 & 0 & 0 & 0 & 0
+    %         } \overset{\elon{2}{3}{2}}{\arron{1}{3}{1}} \smt{ccccc}{
+    %         1 & 3 & 0 & -11 & 5\\
+    %         0 & 1 & 0 & -26 & 10\\
+    %         0 & 0 & 1 & -12 & 4\\
+    %         0 & 0 & 0 & 0 & 0\\
+    %         0 & 0 & 0 & 0 & 0
+    %         } \arron{1}{2}{-3} \smt{ccccc}{
+    %         1 & 0 & 0 &  67 & -25\\
+    %         0 & 1 & 0 & -26 &  10\\
+    %         0 & 0 & 1 & -12 &   4\\
+    %         0 & 0 & 0 &   0 &   0\\
+    %         0 & 0 & 0 &   0 &   0
+    %         }
+    %     \end{multline*}
+        Далее базисные векторы - это вектор-столбцы с главными переменными, то есть $A^{(1)}, A^{(2)}, A^{(3)}$,
+        а зависимые - $A^{(4)} \text{ и } A^{(5)}$. \\
+        $A^{(4)}=67 \cdot A^{(1)} - 26 \cdot A^{(2)} - 12 \cdot A^{(3)}$, $A^{(5)}=-25 \cdot A^{(1)} + 10 \cdot A^{(2)} +4 \cdot A^{(3)}$, следовательно в качестве ответа можно взять следующие матрицы:
+        % \begin{multline*}
+        % x_1 = \smt{ccccc}{
+        % A^{(1)} & 0 & 0 & 67 \cdot A^{(1)} & -25 \cdot A^{(1)}
+        % }, 
+        % x_2 = \smt{ccccc}{
+        % 0 & A^{(2)} & 0 & -26 \cdot A^{(2)} & 10 \cdot A^{(2)}
+        % },\\
+        % x_3 = \smt{ccccc}{
+        % 0 & 0 & A^{(3)} & -12 \cdot A^{(3)} & 4 \cdot A^{(3)}
+        % } 
+        % \\ \text{Они же, но в числах:} \\ 
+        % x_1 = \smt{ccccc}{
+        % -1 & 0 & 0 & -67 &   25\\
+        %  1 & 0 & 0 &  67 &  -25\\
+        %  3 & 0 & 0 & 201 &  -75\\
+        %  1 & 0 & 0 &  67 &  -25\\
+        %  2 & 0 & 0 & 134 &  -50
+        % },
+        % x_2 = \smt{ccccc}{
+        %  0 & 5  & 0 & -130 &  50\\
+        %  0 & 1  & 0 &  -26 &  10\\
+        %  0 & 5  & 0 & -130 &  50\\
+        %  0 & -7 & 0 &  182 & -70\\
+        %  0 & 6  & 0 & -156 &  60
+        % },
+        % x_3 = \smt{ccccc}{
+        %  0 & 0 & -16 &  192 & -64\\
+        %  0 & 0 &   3 &  -36 &  12\\
+        %  0 & 0 &   6 &  -72 &  24\\
+        %  0 & 0 &  21 & -252 &  84\\
+        %  0 & 0 &  -2 &   24 &  -8
+        % }
+        % \end{multline*}        
+
+        % P.S. $rk(A)=3$, т.к. количество независимых столбцов - $3$, следовательно нужно разложить в $3$ матрицы с $rk(x_i)=1$, я это и сделал, во всех трёх матрицах: $x_1, x_2, x_3$, все столбцы выражаются через 1 (и он не нулевой), следовательно их ранги равны $1$, следовательно мой ответ на лажа, а то, что нужно в задаче)
+
+    % \section*{Задача \textnumero 1}
+
+    %     % текст задачи
+    %     Матрица $A \in \text{Mat}_{3 \times n}(\RR)$ такова, что система $Ax = b$ несовместна 
+    %     при некотором $b \in \RR^{3}$, а система $A^Ty = c$ совместна для всех $c \in \RR^n$. 
+    %     Каково наибольшее значение $n$, при котором такое возможно? Ответ обоснуйте. 
+    %     \begin{proof}[Решение.]
+    %         Столбцовый ранг матрицы $A$ равен строковому, а он в свою очередь $\leqslant 3$ 
+    %         (тк всего 3 строки).
+
+    %         \begin{itemize}
+    %             \item Предположим, $n \geqslant 4$. Тогда улучшенный ступенчатый вид матрицы 
+    %             $(A^T \mid c)$ выглядит так: 
+    %             \[\smt{rrr|r} {
+    %                 1 & 0 & 0 & c_1^{\prime} \\
+    %                 0 & 1 & 0 & c_2^{\prime} \\
+    %                 0 & 0 & 1 & c_3^{\prime} \\
+    %                 0 & 0 & 0 & c_4^{\prime} \\
+    %                 \vdots & \vdots & \vdots & \vdots\\
+    %                 0 & 0 & 0 & c_n^{\prime}
+    %             }\]
+    %             так как ранг матрицы $A$ равен количеству строк / столбцов в улучшенном 
+    %             ступенчатом виде (13.7 в конспекте с hse-tex) и так как это верно для любого $c$. 
+                
+    %             Но если $c_i^{\prime} \neq 0$ (где $i \geqslant 4$), то система несовместна. Такое нам не подходит. 
+    %             $\implies n \leqslant 3$
+    %             \item Предположим, $n = 3$ Тогда улучшенный ступенчатый вид матрицы 
+    %             $(A^T \mid c)$ выглядит так:
+    %             \[\smt{rrr|r} {
+    %                 1 & 0 & 0 & c_1^{\prime} \\
+    %                 0 & 1 & 0 & c_2^{\prime} \\
+    %                 0 & 0 & 1 & c_3^{\prime} \\
+    %             }\]
+    %             Все ок, она совместна для любого $c$, так как нет строк вида $(0\ 0\ 0 \mid \Diamond)$, 
+    %             где $\Diamond \neq 0$. Однако так как столбцовый ранг равен строковому, то 
+    %             улучшенный ступенчатый вид матрицы 
+    %             $(A \mid b)$ выглядит так:
+    %             \[\smt{rrr|r} {
+    %                 1 & 0 & 0 & b_1^{\prime} \\
+    %                 0 & 1 & 0 & b_2^{\prime} \\
+    %                 0 & 0 & 1 & b_3^{\prime} \\
+    %             }\]
+    %             Иии\dots она тоже совместна для любого $b$. Это нам не подходит :(
+
+    %             \item Пусть теперь $n = 2$. Тогда улучшенный ступенчатый вид матрицы 
+    %             $(A^T \mid c)$ выглядит так:
+    %             \[\smt{rrr|r} {
+    %                 1 & 0 & a_1 & c_1^{\prime} \\
+    %                 0 & 1 & a_2 & c_2^{\prime} \\
+    %             }\]
+    %             И она совместна для любого $c$. Так как столбцовый ранг равен строковому, то 
+    %             улучшенный ступенчатый вид матрицы 
+    %             $(A \mid b)$ выглядит так:
+    %             \[\smt{rr|r} {
+    %                 1 & 0 & b_1^{\prime} \\
+    %                 0 & 1 & b_2^{\prime} \\
+    %                 a_1^\prime & a_2^\prime & b_3^{\prime} \\
+    %             }\]
+    %             и если $a_1^\prime = a_2^\prime = 0$, а $b_3^{\prime} \neq 0$, то 
+    %             система несовместна. 
+
+    %             Осталось лишь привести подходящий пример. (За отсутствие примера снижали!)
+
+    %             Возьмем $A = 
+    %             \begin{pmatrix}
+    %                 1 & 0 \\ 
+    %                 0 & 1  \\ 
+    %                 0 & 0 \\ 
+    %             \end{pmatrix} $
+                
+    %             Тогда $(A^T \mid c)$ всегда совместна --- подходит решение 
+    %             $\begin{pmatrix}
+    %                 c_1 \\ 
+    %                 c_2 \\ 
+    %                 0 \\ 
+    %             \end{pmatrix}$, а система $(A \mid b)$ несовместна при $b = 
+    %             \begin{pmatrix}
+    %                 0 \\ 
+    %                 0 \\ 
+    %                 1 \\ 
+    %             \end{pmatrix}$
+    %         \end{itemize}
+
+    %         Ответ: наибольшее возможное значение $n = 2$.
+    %     \end{proof}  
+    
+    % \section*{Задача \textnumero 2}
+    %   % текст задачи
+    %   Найдите все комплексные решения уравнения $(2\sqrt{3} + i)z^4 = - 6\sqrt{3} + 10i$, у которых одиниз аргументов принадлежит интервалу $(3\pi,\, 7\pi/2)$.
+    %   \begin{proof}[Решение.]
+    %     Решим уравнение:
+    %     \begin{align*}
+    %       &\left( 2\sqrt{3} + i \right)z^4 = - 6\sqrt{3} + 10i \\
+    %       &z^4 = \frac{-6\sqrt{3}+10i}{2\sqrt{3} + i} = \frac{\left(2\sqrt{3}\right)\left( -6\sqrt{3} \right) + 10}{\left( 2\sqrt{3} \right)^2 + 1} + \frac{\left( 10 \cdot 2\sqrt{3} \right) - \left( -6\sqrt{3} \right)}{\left( 2\sqrt{3} \right)^2 + 1}i = \frac{-26}{13} + \frac{26\sqrt{3}}{13}i = -2 + 2\sqrt{3}i \\
+    %       &\big| z^4 \big| = \sqrt{(-2)^2 + \left( 2\sqrt{3} \right)^2} = \sqrt{16} = 4 \\
+    %       &\cos \varphi = \frac{-2}{4} = -\frac{1}{2}\quad \text{--- косинус аргумента}\\
+    %       &\sin \varphi = \frac{2\sqrt{3}}{4} = \frac{\sqrt{3}}{2} \quad \text{--- синус аргумента} \\
+    %       &\varphi = \frac{2\pi}{3} \quad \text{--- аргумент}\\
+    %       &z^4 = \big| z^4 \big| (\cos \varphi + i \sin \varphi) = 4\left( \cos \frac{2\pi}{3} + i \sin \frac{2\pi}{3} \right) \\
+    %       &\begin{aligned}
+    %         z = \sqrt[4]{4\left( \cos \frac{2\pi}{3} + i \sin \frac{2\pi}{3} \right)} = \sqrt[4]{4} \left( \cos \frac{2\pi/3 + 2\pi k}{4} + i \sin \frac{2\pi/3 + 2\pi k}{4} \right) = \sqrt{2} \left( \cos \left( \frac{\pi}{6} + \frac{\pi}{2} k \right) + i \sin \left( \frac{\pi}{6} + \frac{\pi}{2} k \right) \right), &\\
+    %         k = 0,\, 1,\, 2,\, 3 &
+    %       \end{aligned}
+    %     \end{align*}
+    %     Аргументам, принадлежащим интервалу $(3\pi,\, 7\pi/2)$, с отрезка $[0,\, 2\pi]$ соответствуют аргументы, принадлежащие интервалу $(\pi,\, 3\pi/2)$. Значит, нам подходит $k = 2$, так как $ \frac{7\pi}{6} \in (\pi,\, 3\pi/2)$ и $\frac{\pi}{6},\, \frac{4\pi}{6},\, \frac{10\pi}{6} \notin (\pi,\, 3\pi/2)$.
+
+    %     Тогда решение уравнения с аргументом, лежащим в интервале $(3\pi,\, 7\pi/2)$ ~--- комплексное число
+    %     \begin{equation*}
+    %       \sqrt{2} \left( \cos \frac{7\pi}{6} + i \sin \frac{7\pi}{6} \right) =\sqrt{2} \left( -\frac{\sqrt{3}}{2} - i \frac{1}{2} \right) = \bm{-\frac{\sqrt{3}}{\sqrt{2}} - i\frac{\sqrt{2}}{2}}.
+    %     \end{equation*}
+
+    %   \end{proof}
+    
+    % \section*{Задача \textnumero 3}
+    %   Известно, что векторы  $v₁, v₂, v₃$ и $v₄$ некоторого векторного
+    %   пространства над $\mathbb{R}$ линейно независимы. Могут ли
+    %   векторы \\
+    %   \[u₁ = 3v₁ + 2v₂ + v₄, u₂ = 2v₁ + v₂ + 3v₃ - v₄,
+    %    u₃ = v₁ + v₂ - v₃ \] 
+    %    быть линейно зависимыми? \textbf{Ответ обоснуйте.}
+    %   \begin{proof}[Решение.] \ 
+    %     \begin{itemize}
+    %         \item  Мы знаем, что всякая линейно независимая система векторов
+    %         является базисом своей линейной оболочки (этот факт упоминался
+    %         на лекциях).
+    %         \item Таким образом, векторы $v₁, v₂, v₃$ и $v₄$ являются
+    %         базисом своей линейной оболочки -- назовём её $S$. 
+    %         \item Заметим, что векторы $u₁, u₂, u₃ ∈ S$ (они представимы
+    %         в виде линейной комбинации векторов $v₁, v₂, v₃$ и $v₄$, являющихся
+    %         базисом $S$). 
+    %         \item В базисе $v₁, v₂, v₃, v₄$ наши векторы $u₁, u₂, u₃$ 
+    %         представимы следующим образом: \\
+    %         $u₁ = \begin{pmatrix}
+    %           3 \\
+    %           2 \\ 
+    %           0 \\ 
+    %           1 
+    %         \end{pmatrix}$ ,
+    %         $u₂ = \begin{pmatrix}
+    %           2 \\
+    %           1 \\ 
+    %           3 \\ 
+    %           -1 
+    %         \end{pmatrix}$ ,
+    %         $u₃ = \begin{pmatrix}
+    %           1 \\
+    %           1 \\ 
+    %           -1 \\ 
+    %           0 
+    %         \end{pmatrix}$
+    %         \item Таким образом, мы свели нашу задачу к задаче о проверке 
+    %         системы векторов на линейную независимость (просто в немного
+    %         странном базисе).
+    %         \item Вопрос о линейной зависимости конечного набора векторов
+    %         сводится к составлению ОСЛУ и вопросу о наличии у него 
+    %         ненулевого решения.
+    %         \item Запишем векторы по столбцам и применим наш любимый метод
+    %         Гаусса: \\
+    %         $\begin{pmatrix}
+    %           3 & 2 & 1\\
+    %           2 & 1 & 1 \\
+    %           0 & 3 & -1 \\
+    %           1 & -1 & 0  
+    %         \end{pmatrix}
+    %         \rightsquigarrow
+    %         \begin{pmatrix}
+    %           1 & -1 & 0\\
+    %           2 & 1 & 1 \\
+    %           0 & 3 & -1 \\
+    %           3 & 2 & 1
+    %         \end{pmatrix}
+    %         \rightsquigarrow
+    %         \begin{pmatrix}
+    %           1 & -1 & 0\\
+    %           0 & 3 & 1 \\
+    %           0 & 3 & -1 \\
+    %           0 & 5 & 1
+    %         \end{pmatrix}
+    %         \rightsquigarrow
+    %         \begin{pmatrix}
+    %           1 & -1 & 0\\
+    %           0 & 3 & 1 \\
+    %           0 & 0 & 2 \\
+    %           0 & 5 & 1
+    %         \end{pmatrix}$
+    %         \item Видим, что у нас 3 главных переменных (а неизвестных
+    %         тоже 3) $⇒$ ОСЛУ имеет единственное решение -- нулевое $⇒$
+    %         векторы линейно независимы.
+    %     \end{itemize}   
+    %     Внимательно смотрим на вопрос и пишем подходящий ответ: \\ 
+    %     \textbf{Ответ:} Нет, не могут.
+    %   \end{proof}
+    %   \remark{
+    %     Прийти к такой системе можно было и другим способом:
+    %    \begin{itemize}
+    %        \item Знаем, что векторы линейно зависимы тогда
+    %        и только тогда, когда существует их нетривиальная (такая, что
+    %        $∃i: \alpha_i ≠ 0$, ненулевая) линейная комбинации, равная 0
+    %        \item То есть, тогда и только тогда, когда $∃a, b, c ∈ \mathbb{R}: 
+    %        au₁ + bu₂ + cu₃ = 0$ и $(a ≠ 0) ∨ (b ≠ 0) ∨ (c ≠ 0)$
+    %        \item Заметим, что: \\
+    %        $u₁ = (v₁, v₂, v₃, v₄) ⋅ \begin{pmatrix}
+    %          3 \\
+    %          2 \\
+    %          0 \\ 
+    %          1
+    %        \end{pmatrix}, u₂ = (v₁, v₂, v₃, v₄) ⋅ \begin{pmatrix}
+    %         2 \\
+    %         1 \\
+    %         3 \\ 
+    %         -1
+    %       \end{pmatrix}, u₁ = (v₁, v₂, v₃, v₄) ⋅ \begin{pmatrix}
+    %         1 \\
+    %         1 \\
+    %         -1 \\ 
+    %         0
+    %       \end{pmatrix}$ 
+    %       \item Тогда имеем: \\
+    %        $au₁ + bu₂ + cu₃ = a ⋅ (v₁, v₂, v₃, v₄) ⋅ \begin{pmatrix}
+    %         3 \\
+    %         2 \\
+    %         0 \\ 
+    %         1
+    %       \end{pmatrix} + b ⋅ (v₁, v₂, v₃, v₄) ⋅ \begin{pmatrix}
+    %        2 \\
+    %        1 \\
+    %        3 \\ 
+    %        -1
+    %      \end{pmatrix} + c ⋅ (v₁, v₂, v₃, v₄) ⋅ \begin{pmatrix}
+    %        1 \\
+    %        1 \\
+    %        -1 \\ 
+    %        0
+    %      \end{pmatrix} = \\ = (v₁, v₂, v₃, v₄)\left(
+    %       a  ⋅ \begin{pmatrix}
+    %         3 \\
+    %         2 \\
+    %         0 \\ 
+    %         1
+    %       \end{pmatrix} + b  ⋅ \begin{pmatrix}
+    %        2 \\
+    %        1 \\
+    %        3 \\ 
+    %        -1
+    %      \end{pmatrix} + c  ⋅ \begin{pmatrix}
+    %        1 \\
+    %        1 \\
+    %        -1 \\ 
+    %        0
+    %      \end{pmatrix}
+    %      \right)$
+    %      \item Такое выражение равно 0, если:
+    %      \begin{itemize}
+    %          \item $(v₁, v₂, v₃, v₄) = \overline{0}$ -- сразу нет (у нас
+    %          же линейно независимая система) 
+    %          \item Второй множитель равен 0 -- вот это наша остановочка
+    %      \end{itemize}
+    %      \item Заметим, что: \\
+    %      $ a  ⋅ \begin{pmatrix}
+    %       3 \\
+    %       2 \\
+    %       0 \\ 
+    %       1
+    %     \end{pmatrix} + b  ⋅ \begin{pmatrix}
+    %      2 \\
+    %      1 \\
+    %      3 \\ 
+    %      -1
+    %    \end{pmatrix} + c  ⋅ \begin{pmatrix}
+    %      1 \\
+    %      1 \\
+    %      -1 \\ 
+    %      0
+    %    \end{pmatrix} =  \begin{pmatrix}
+    %     3 & 2 & 1\\
+    %     2 & 1 & 1 \\
+    %     0 & 3 & -1 \\
+    %     1 & -1 & 0  
+    %   \end{pmatrix} ⋅ \begin{pmatrix}
+    %     a \\
+    %     b \\
+    %     c  
+    %   \end{pmatrix}$
+    %   \item Отсюда получаем ту же ОСЛУ, что и в решении выше.  
+    %    \end{itemize}
+    %   }
+    % \section*{Задача \textnumero 4}
+    %   % текст задачи
+    %   Пусть $A = \begin{pmatrix}
+    %     1 & 2 & 0 \\
+    %     0 & -1 & 3
+    %   \end{pmatrix}$. Докажите, что множество всех матриц $X \in \Mat_{2 \times 3}(\RR)$, удовлетворяющих условию $XA^T + AX^T = 0$, является подпространством в пространстве $\Mat_{2 \times 3}(\RR)$; найдите базис и размерность этого подпространства.
+    %     \begin{proof}[Решение.]
+    %     Заметим, что $XA^T = (AX^T)^T$, тогда уравнение можно переписать так:
+    %     \begin{equation*}
+    %       (AX^T)^T + AX^T = 0.
+    %     \end{equation*}
+    %     Проверим множества решений $U$ на условия подпространства:
+    %     \begin{enumerate}
+    %       \item $(A \cdot 0^T)^T + A \cdot 0^T = 0 \implies 0 \in U$
+    %       \item $Y,\, Z \in U \implies (A(Y + Z)^T)^T + A(Y + Z)^T = \underbrace{(AY^T)^T + AY^T}_0 + \underbrace{(AZ^T)^T + AZ^T}_0 = 0 \implies Y+Z \in U$
+    %       \item $Y \in U,\, \alpha \in \RR \implies (A(\alpha Y)^T)^T + A (\alpha Y)^T = \alpha (\underbrace{(AY^T)^T + AY^T}_0) = 0$
+    %     \end{enumerate}
+    %     Значит, $U$~--- подпространство в $\Mat_{2\times 3}(\RR)$.
+
+    %     $AX^T$~--- это некоторая матрица размера $2 \times 2$, которая в сложении с собой транспонированной даёт ноль. У такой матрицы $[AX^T]_{ij} = -[AX^T]_{ji}$, то есть диагональные элементы нулевые, а остальные противоположны с симметричными. Запишем это условие:
+    %     \begin{equation*}
+    %       AX^T = \begin{pmatrix}
+    %         1 & 2 & 0 \\
+    %         0 & -1 & 3
+    %       \end{pmatrix} \begin{pmatrix}
+    %         x_1 & x_4 \\
+    %         x_2 & x_5 \\
+    %         x_3 & x_6
+    %       \end{pmatrix} = \begin{pmatrix}
+    %         x_1 + 2x_2 & x_4 + 2x_5 \\
+    %         -x_2 + 3x_3 & -x_5 + 3x_6
+    %       \end{pmatrix} \implies \begin{dcases}
+    %         x_1 + 2x_2 = 0\\
+    %         x_4 + 2x_5 - x_2 + 3x_3 = 0\\
+    %         -x_5 + 3x_6 = 0
+    %       \end{dcases}
+    %     \end{equation*}
+    %     Решим ОСЛУ от переменных $x_1,\dots , x_6$:
+    %     \begin{multline*}
+    %       \smt{cccccc|c}{
+    %         1 & 2 & 0 & 0 & 0 & 0 & 0 \\
+    %         0 & -1 & 3 & 1 & 2 & 0 & 0 \\ 
+    %         0 & 0 & 0 & 0 & -1 & 3 & 0
+    %       } \overset{\elth{3}{-1}}{\arron{1}{2}{2}} \smt{cccccc|c}{
+    %         1 & 0 & 6 & 2 & 4 & 0 & 0 \\
+    %         0 & -1 & 3 & 1 & 2 & 0 & 0 \\
+    %         0 & 0 & 0 & 0 & 1 & -3 & 0
+    %       } \overset{\elon{1}{3}{-4}}{\arron{2}{3}{-2}} \\
+    %       \overset{\elon{1}{3}{-4}}{\arron{2}{3}{-2}} \smt{cccccc|c}{
+    %         1 & 0 & 6 & 2 & 0 & 12 & 0 \\
+    %         0 & -1 & 3 & 1 & 0 & 6 & 0 \\
+    %         0 & 0 & 0 & 0 & 1 & -3 & 0
+    %       } \arrth{2}{-1} \smt{cccccc|c}{
+    %         1 & 0 & 6 & 2 & 0 & 12 & 0 \\
+    %         0 & 1 & -3 & -1 & 0 & -6 & 0 \\
+    %         0 & 0 & 0 & 0 & 1 & -3 & 0
+    %       }
+    %     \end{multline*}
+    %     Общее решение выводится несложно, но оно нам не нужно. Нам нужна ФСР. Она будет содержать три вектора и выглядеть следующим образом: 
+    %     \begin{equation*}
+    %       v_1 = \begin{pmatrix}
+    %         -6 \\
+    %         3 \\
+    %         1 \\
+    %         0 \\
+    %         0 \\
+    %         0 \\
+    %       \end{pmatrix},\ v_2 = \begin{pmatrix}
+    %         -2 \\
+    %         1 \\
+    %         0 \\
+    %         1 \\
+    %         0 \\
+    %         0
+    %       \end{pmatrix},\ v_3 = \begin{pmatrix}
+    %         -12 \\
+    %         6 \\
+    %         0 \\
+    %         0 \\
+    %         3 \\
+    %         1
+    %       \end{pmatrix}.
+    %     \end{equation*}
+    %     Тогда базис нашего пространства $U$~--- это матрицы 
+    %     \begin{equation*}
+    %       \bm{X_1} = \begin{pmatrix}
+    %         \bm{-6} & \bm{3} & \bm{1} \\
+    %         \bm{0} & \bm{0} & \bm{0}
+    %       \end{pmatrix},\ \bm{X_2} = \begin{pmatrix}
+    %         \bm{-2} & \bm{1} & \bm{0} \\
+    %         \bm{1} & \bm{0} & \bm{0}
+    %       \end{pmatrix},\ \bm{X_3} = \begin{pmatrix}
+    %         \bm{-12} & \bm{6} & \bm{0} \\
+    %         \bm{0} & \bm{3} & \bm{1}
+    %       \end{pmatrix},
+    %     \end{equation*}
+    %     а его размерность (размер базиса)~--- $\bm{3}$.
+
+    %   \end{proof}
+    
+    % \section*{Задача \textnumero 5}
+    %   В пространстве $\mathbb{R}^5$ даны векторы 
+    %   \[v₁ = (1, 2, 1, 3, 3), v₂ = (3, 7, 3, 5, 4),
+    %   v₃ = (1, 1, 1, 7, 8), v₄ = (3, 4, 3, 8, 2).\]
+    %   \begin{itemize}
+    %       \item[(а)] Выберите среди данных векторов базис их линейной оболочки.
+    %       \item[(б)] Дополните полученный в пункте (а) базис до базиса всего
+    %       пространства $\mathbb{R}^5$. 
+    %   \end{itemize}
+    %     \begin{proof}[Решение.] \ 
+    %     \begin{itemize}
+    %         \item[(а)] Алгоритм решения такой:
+    %         \begin{itemize}
+    %             \item Укладываем векторы в столбцы
+    %             \item Приводим матрицу к улучшенному ступенчатому виду
+    %             методом Гаусса (преобразованиями строк)
+    %             \item Номера столбцов ведущих переменных и будут являться 
+    %             номерами векторов, которые мы должны взять в базис
+    %         \end{itemize} 
+    %         $
+    %           \begin{pmatrix}
+    %             1 & 3 & 1 & 3 \\ 
+    %             2 & 7 & 1 & 4 \\
+    %             1 & 3 & 1 & 3 \\
+    %             3 & 5 & 7 & 8 \\
+    %             3 & 4 & 8 & 2
+    %           \end{pmatrix} \rightsquigarrow
+    %           \begin{pmatrix}
+    %             1 & 3 & 1 & 3 \\ 
+    %             0 & 1 & -1 & -2 \\
+    %             0 & 0 & 0 & 0 \\
+    %             0 & -4 & 4 & -1 \\
+    %             0 & -5 & 5 & -7
+    %           \end{pmatrix} \rightsquigarrow
+    %           \begin{pmatrix}
+    %             1 & 0 & 4 & 9 \\ 
+    %             0 & 1 & -1 & -2 \\
+    %             0 & 0 & 0 & 0 \\
+    %             0 & 0 & 0 & -9 \\
+    %             0 & 0 & 0 & -17
+    %           \end{pmatrix} \rightsquigarrow
+    %           \begin{pmatrix}
+    %             1 & 0 & 4 & 0 \\ 
+    %             0 & 1 & -1 & 0 \\
+    %             0 & 0 & 0 & 1 \\
+    %             0 & 0 & 0 & 0 \\
+    %             0 & 0 & 0 & 0
+    %           \end{pmatrix}
+    %         ⇒$ \\ $⇒$в качестве базиса выбираем $v₁, v₂, v₄$
+    %         \item[(б)] Алгоритм тут такой:
+    %           \begin{itemize}
+    %               \item Укладываем полученный в пункте (а) базис по строкам
+    %               \item Приводим полученную матрицу к ступенчатому виду
+    %               преобразованиями строк
+    %               \item Дополняем базис базисными единичками с номерами НЕГЛАВНЫХ
+    %               переменных нашей системы
+    %           \end{itemize}  
+    %           $
+    %           \begin{pmatrix}
+    %             1 & 2 & 1 & 3 & 3 \\ 
+    %             3 & 7 & 3 & 5 & 4 \\
+    %             3 & 4 & 3 & 8 & 2 
+    %           \end{pmatrix}
+    %           \rightsquigarrow
+    %           \begin{pmatrix}
+    %             1 & 2 & 1 & 3 & 3 \\ 
+    %             0 & 1 & 0 & -4 & -5 \\
+    %             0 & -2 & 0 & -1 & -7 
+    %           \end{pmatrix}
+    %           \rightsquigarrow
+    %           \begin{pmatrix}
+    %             1 & 0 & 1 & 11 & 13 \\ 
+    %             0 & 1 & 0 & -4 & -5 \\
+    %             0 & 0 & 0 & -9 & -17 
+    %           \end{pmatrix}
+    %           $ \\
+    %           Свободные переменные имеют номера 3 и 5 $⇒$ матричными единичками
+    %           с такими номерами и необходимо дополнить наш базис. \\ 
+    %           Дополняющие векторы: \\
+    %           \[
+    %             e₃ = \begin{pmatrix}
+    %               0 \\ 
+    %               0\\
+    %               1 \\
+    %               0 \\ 
+    %               0
+    %             \end{pmatrix}, 
+    %             e₅ = \begin{pmatrix}
+    %               0 \\ 
+    %               0\\
+    %               0 \\
+    %               0 \\ 
+    %               1
+    %             \end{pmatrix}
+    %             \]  
+    %     \end{itemize}
+    %     \begin{remark}
+    %       Вспомним, что столбцовый ранг матрицы равен строковому рангу матрицы, поэтому
+    %       мы могли не решать отдельно пункт (а), а сразу перейти к решению пункта (б): 
+    %       линейно выразимый вектор (тот, который мы не взяли в базис), обнулился бы при
+    %       преобразованиях.
+    %     \end{remark}
+    %   \end{proof}
+
+    % \section*{Задача \textnumero 6}
+    %   % текст задачи
+    %   Существует ли однородная система линейных уравнений, для которой векторы $v_1 =(0,\, -1,\, -1,\, 1,\, 0)$, $v_2 = (1,\, 2,\, 2,\, 0,\, 0)$, $v_3 = (1,\, 0,\, 2,\, 0,\, 2)$ образуют фундаментальную систему решений? Если существует, то укажите её.
+    %     \begin{proof}[Решение.]
+    %     Для начала проверим, что векторы $v_1,\, v_2$ и $v_3$ линейно независимы. Для этого запишем их в столбцы матрицы и приведём её к ступенчатому виду.
+    %     \begin{multline*}
+    %       \begin{pmatrix}
+    %         0 & 1 & 1 \\
+    %         -1 & -1 & -1 \\
+    %         -1 & 2 & 2 \\
+    %         1 & 0 & 0 \\
+    %         0 & 0 & 2
+    %       \end{pmatrix} \arrtw{1}{2} \begin{pmatrix}
+    %         -1 & -1 & -1 \\
+    %         0 & 1 & 1 \\
+    %         -1 & 2 & 2 \\
+    %         1 & 0 & 0 \\
+    %         0 & 0 & 2
+    %       \end{pmatrix} \overset{\elon{4}{1}{1}}{\arron{3}{1}{-1}} \begin{pmatrix}
+    %         -1 & -1 & -1 \\
+    %         0 & 1 & 1 \\
+    %         0 & 3 & 3 \\
+    %         0 & -1 & -1 \\
+    %         0 & 0 & 2
+    %       \end{pmatrix} \overset{\elon{4}{2}{1}}{\arron{3}{2}{-3}} \begin{pmatrix}
+    %         -1 & -1 & -1 \\
+    %         0 & 1 & 1 \\
+    %         0 & 0 & 0 \\
+    %         0 & 0 & 0 \\
+    %         0 & 0 & 2
+    %       \end{pmatrix} \arrtw{3}{5} \\
+    %       \arrtw{3}{5} \left(
+    %         \begin{tabular}{ccc}
+    %         \multicolumn{1}{|c}{$-1$} & $-1$                     & $-1$ \\ \cline{1-1}
+    %         \multicolumn{1}{c|}{$0$}  & $1$                      & $1$  \\ \cline{2-2}
+    %         $0$                       & \multicolumn{1}{c|}{$0$} & $2$  \\ \cline{3-3} 
+    %         $0$                       & $0$                      & $0$  \\
+    %         $0$                       & $0$                      & $0$ 
+    %         \end{tabular}\right)
+    %     \end{multline*}  
+    %     Действительно, эти векторы линейно независимы. В таком случае мы точно можем сказать, что существует ОСЛУ, для которой $v_1,\, v_2,\, v_3$ являются ФСР, так как у нас есть алгоритм, по которому эта ОСЛУ строится. Воспользуемся им.
+    %     \begin{enumerate}
+    %       \item Уложим векторы $v_1,\, v_2,\, v_3$ в строки матрицы $B \in \Mat_{3 \times 5}(\RR)$. Матрица $B$ будет выглядеть так:
+    %       \begin{equation*}
+    %         B = \begin{pmatrix}
+    %           0 & -1 & -1 & 1 & 0 \\
+    %           1 & 2 & 2 & 0 & 0 \\
+    %           1 & 0 & 2 & 0 & 2
+    %         \end{pmatrix}
+    %       \end{equation*}
+    %       \item Найдём ФСР системы $Bz = 0$:
+    %       \begin{multline*}
+    %         \smt{ccccc|c}{
+    %           0 & -1 & -1 & 1 & 0 & 0 \\
+    %           1 & 2 & 2 & 0 & 0 & 0 \\
+    %           1 & 0 & 2 & 0 & 2 & 0
+    %         } \arrtw{1}{2} \smt{ccccc|c}{
+    %           1 & 2 & 2 & 0 & 0 & 0 \\
+    %           0 & -1 & -1 & 1 & 0 & 0 \\
+    %           1 & 0 & 2 & 0 & 2 & 0
+    %         } \arron{3}{1}{-1} \smt{ccccc|c}{
+    %           1 & 2 & 2 & 0 & 0 & 0 \\
+    %           0 & -1 & -1 & 1 & 0 & 0 \\
+    %           0 & -2 & 0 & 0 & 2 & 0
+    %         } \arron{3}{2}{-2} \\ 
+    %         \arron{3}{2}{-2} \smt{ccccc|c}{
+    %           1 & 2 & 2 & 0 & 0 & 0 \\
+    %           0 & -1 & -1 & 1 & 0 & 0 \\
+    %           0 & 0 & 2 & -2 & 2 & 0
+    %         } \overset{\elth{2}{-1}}{\arrth{3}{1/2}} \smt{ccccc|c}{
+    %           1 & 2 & 2 & 0 & 0 & 0 \\
+    %           0 & 1 & 1 & -1 & 0 & 0 \\
+    %           0 & 0 & 1 & -1 & 1 & 0
+    %         } \arron{1}{2}{-2} \smt{ccccc|c}{
+    %           1 & 0 & 0 & 2 & 0 & 0 \\
+    %           0 & 1 & 1 & -1 & 0 & 0 \\
+    %           0 & 0 & 1 & -1 & 1 & 0
+    %         } \to\\
+    %         {\arron{2}{3}{-1}} \smt{ccccc|c}{
+    %           1 & 0 & 0 & 2 & 0 & 0 \\
+    %           0 & 1 & 0 & 0 & -1 & 0 \\
+    %           0 & 0 & 1 & -1 & 1 & 0
+    %         }
+    %       \end{multline*}
+    %       Дальше легко восстановить решение ОСЛУ, но нас интересует ФСР. Она будет выглядеть следующим образом:
+    %       \begin{equation*}
+    %         u_1 = \begin{pmatrix}
+    %           -2 \\
+    %           0 \\
+    %           1 \\
+    %           1 \\
+    %           0
+    %         \end{pmatrix},\ u_2 = \begin{pmatrix}
+    %           0 \\
+    %           1 \\
+    %           -1 \\
+    %           0 \\
+    %           1
+    %         \end{pmatrix}
+    %       \end{equation*}
+    %       \item Уложим ФСР в строки матрицы $A \in \Mat_{2 \times 5}(\RR)$. Матрица $A$ будет матрицей искомой ОСЛУ и будет выглядеть так:
+    %       \begin{equation*}
+    %         A = \begin{pmatrix}
+    %           -2 & 0 & 1 & 1 & 0 \\
+    %           0 & 1 & -1 & 0 & 1
+    %         \end{pmatrix}
+    %       \end{equation*}
+    %     \end{enumerate}
+    %     Не забываем, что нас просили найти не матрицу, а саму ОСЛУ. Запишем её:
+    %     \begin{equation*}
+    %       \begin{cases}
+    %         \bm{-2x_1 + x_3 + x_4 = 0} \\
+    %         \bm{x_2 - x_3 + x_5 = 0}
+    %       \end{cases}
+    %     \end{equation*} 
+    %   \end{proof}
+
+    % \section*{Задача \textnumero 7}
+    %     Найдите все значения параметра $a$, при которых матрица $A = 
+    %     \begin{pmatrix}
+    %         a & -1 & 0 & -2 \\ 
+    %         3 & 3 & 2 & 0 \\ 
+    %         -2 & 5 & 1 & 7 \\ 
+    %     \end{pmatrix} 
+    %     $
+    %     представима в виде суммы двух матриц ранга 1, и для каждого 
+    %     значения укажите такое представление.
+    %     \begin{proof}[Решение 1.]
+    %         Знаем, что матрица ранга $r$ представима в виде суммы $r$ матриц ранга 1 и не представима
+    %         в виде суммы меньшего числа таких матриц 
+    %         (\href{https://www.youtube.com/watch?v=RgIt32Bc_gc&t=1h0m21s}{доказательство}). 
+    %         Поэтому нам нужно такое значение параметра $a$, что rk $A = 2$. 
+
+    %         Применим к ней элементарные преобразования строк: 
+    %         %\xrightarrow{\text{Э}_2(1,3)}
+    %         \begin{multline*}
+    %             \begin{pmatrix}
+    %                 a & -1 & 0 & -2 \\ 
+    %                 3 & 3 & 2 & 0 \\ 
+    %                 -2 & 5 & 1 & 7 \\ 
+    %             \end{pmatrix} 
+    %             \arron{2}{3}{-2}
+    %             \begin{pmatrix}
+    %                 a & -1 & 0 & -2 \\ 
+    %                 7 & -7 & 0 & -14 \\ 
+    %                 -2 & 5 & 1 & 7 \\ 
+    %             \end{pmatrix}
+    %             \arrth{2}{-1/7}
+    %             \begin{pmatrix}
+    %                 a & -1 & 0 & -2 \\ 
+    %                 -1 & 1 & 0 & 2 \\ 
+    %                 -2 & 5 & 1 & 7 \\ 
+    %             \end{pmatrix}
+    %             \arron{1}{2}{1}\\
+    %             \arron{1}{2}{1}
+    %             \begin{pmatrix}
+    %                 a-1 & 0 & 0 & 0 \\ 
+    %                 -1 & 1 & 0 & 2 \\ 
+    %                 -2 & 5 & 1 & 7 \\ 
+    %             \end{pmatrix}
+    %             \arron{3}{2}{-5}
+    %             \begin{pmatrix}
+    %                 a-1 & 0 & 0 & 0 \\ 
+    %                 -1 & 1 & 0 & 2 \\ 
+    %                 3 & 0 & 1 & -3 \\ 
+    %             \end{pmatrix}
+    %         \end{multline*}
+
+    %         Получаем 2 ненулевые строки $\implies \text{rk}A \geqslant 2$. Однако нам нужно, 
+    %         чтобы ранг был в точности 2 $\implies$ верхняя строка нулевая $\implies a = 1$ и это 
+    %         единственное подходящее значение параметра.
+
+    %         Улучшенный ступенчатый вид тогда: 
+    %         $\begin{pmatrix}
+    %             0 & 0 & 0 & 0 \\ 
+    %             -1 & 1 & 0 & 2 \\ 
+    %             3 & 0 & 1 & -3 \\ 
+    %         \end{pmatrix}
+    %         $
+
+    %         Найдем по нему разложение. Выразим 1 и 4 столбец через 2 и 3: 
+
+    %         $
+    %         A = 
+    %         \begin{pmatrix}
+    %             -1A^{(2)} & 1A^{(2)} & 0 & 2A^{(2)} \\ 
+    %         \end{pmatrix}
+    %         + 
+    %         \begin{pmatrix}
+    %             3A^{(3)} & 0 & 1A^{(3)} & -3A^{(3)}
+    %         \end{pmatrix} 
+    %         = 
+    %         \begin{pmatrix}
+    %             1 & -1 & 0 & -2 \\ 
+    %             -3 & 3 & 0 & 6 \\ 
+    %             -5 & 5 & 0 & 10 \\ 
+    %         \end{pmatrix}
+    %         +
+    %         \begin{pmatrix}
+    %             0 & 0 & 0 & 0 \\ 
+    %             6 & 0 & 2 & -6 \\ 
+    %             3 & 0 & 1 & -3 \\ 
+    %         \end{pmatrix}
+    %         $
+
+    %         (Общий алгоритм разложения матрицы в сумму матриц ранга 1 описан \href{https://drive.google.com/drive/folders/15svYwT_WAkuJ3TXS9_b5PeYdkD_t5gmj}{здесь} 
+    %         в предпоследнем абзаце.) 
+
+    %         Ответ: $a = 1$, $
+    %         A = 
+    %         \begin{pmatrix}
+    %             1 & -1 & 0 & -2 \\ 
+    %             -3 & 3 & 0 & 6 \\ 
+    %             -5 & 5 & 0 & 10 \\ 
+    %         \end{pmatrix}
+    %         +
+    %         \begin{pmatrix}
+    %             0 & 0 & 0 & 0 \\ 
+    %             6 & 0 & 2 & -6 \\ 
+    %             3 & 0 & 1 & -3 \\ 
+    %         \end{pmatrix}
+    %         $
+    %     \end{proof}
+
+    %     \begin{proof}[Решение 2.] (Только идея, мне лень это техать)\
+
+    %         Вспомним теорему о ранге матрицы (теорема 14.1 в конспекте с hse-tex): 
+    %         rk $A$ = наибольшему порядку ненулевого минора в $A$. 
+            
+    %         Отличие от предыдущего решения лишь в том, что мы по-другому будем искать подходящее 
+    %         значение параметра $a$. Ненулевой минор ранга 2 точно найдется, 
+    %         например
+    %         $
+    %         \begin{vmatrix}
+    %             3 & 3 \\ 
+    %             -2 & 5 \\ 
+    %         \end{vmatrix}
+    %         \implies \text{rk} A \geqslant 2$. Однако мы хотим чтобы ранг был в точности 2, поэтому 
+    %         все миноры 3 порядка должны быть нулевыми. Осталось проверить все 4 варианта и оставить только те 
+    %         значения параметра $a$, при которых везде получается 0. Далее ищем разложение как в решении 1.
+            
+    %         (Я реально это на экзе делала, прикиньте. 
+    %         Кстати  проверку для минора, в который $a$ не входит, тоже надо выписать.)
+    %     \end{proof}
+
+    % \section*{Задача \textnumero 8}
+    %     % текст задачи
+    %     Как изменится определитель матрицы $58 \times 58$, если с её столбцами одновременно 
+    %     выполнить следующие действия 
+    %     \begin{itemize}
+    %         \item к каждому столбцу, кроме первого, прибавить предыдущий;
+    %         \item из первого столбца вычесть последний?
+    %     \end{itemize}
+    %     Ответ обоснуйте.
+    %     \begin{proof}[Решение.]
+    %         Пусть $A = 
+    %         \begin{pmatrix}
+    %             A_{(1)} & A_{(2)} & \ldots & A_{(57)} & A_{(58)} \\ 
+    %         \end{pmatrix}$
+
+    %         Тогда $A^{\prime} = 
+    %         \begin{pmatrix}
+    %             A_{(1)} - A_{(58)} & A_{(1)} + A_{(2)} & \ldots & A_{(56)} + A_{(57)} & A_{(57)} + A_{(58)} \\ 
+    %         \end{pmatrix}$
+
+    %         Запишем это следующим образом: 
+    %         $A^{\prime} = A \cdot C$, где $C = 
+    %         \begin{pmatrix}
+    %             1 & 1 & 0 & \ldots & 0 & 0 \\ 
+    %             0 & 1 & 1 & \ldots &   & 0 \\ 
+    %               & 0 & 1 &   &   &   \\ 
+    %             \vdots &   &   & \ddots &   &  \vdots \\ 
+    %             0 &  &  &   &   1 &   1\\ 
+    %             -1 & 0 &  \ldots& \ldots &   0 &   1\\ 
+    %         \end{pmatrix}
+    %         $
+
+    %         (Единицы на главное диагонали, единицы на диагонали над главной и -1 
+    %         в $a_{58, 1}$, остальное нули. И да, это матрица перехода, но это просто для любопытных.)
+
+    %         Вспомним теорему про определитель произведения матриц (теорема 7.1 в конспекте с hse-tex): 
+    %         $\det AB = \det A \cdot \det B$.
+
+    %         Тогда $\det A^{\prime} = \det A \cdot \det C$
+
+    %         В определителе матрицы $C$ всего 2 ненулевых слагаемых, поэтому $\det C = (\text{sgn } id) \cdot 1 + (\text{sgn } \sigma) \cdot (-1)$, где 
+    %         $\sigma = (1\ 2\ 3\ 4\ \ldots 57\ 58)$ (запись в виде цикла). $\text{sgn } \sigma = (-1)^{58 - 1} = -1$. Итого $\det C = 1 \cdot 1 + (-1)(-1) = 2$. 
+
+    %         Тогда $\det A^{\prime} = 2\det A $
+
+    %         Ответ: увеличится в 2 раза.
+    %     \end{proof}
+    
+\end{document}

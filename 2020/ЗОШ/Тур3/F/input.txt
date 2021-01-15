@@ -1,0 +1,16 @@
+9
+aaabb
+bbbababa
+bbaaba
+baaaabaa
+a
+bab
+aaabaaa
+bb
+b
+5
+a
+aaabbb
+baabbb
+aaaaaaabba
+baaaabbab

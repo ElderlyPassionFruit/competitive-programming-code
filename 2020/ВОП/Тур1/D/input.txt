@@ -1,0 +1,13 @@
+4
+RC S 1
+H
+S 0 2
+H
+H
+RC 1 2
+LC 0 3
+H
+H
+S 1 1
+H
+HC

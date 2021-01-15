@@ -1,0 +1,12 @@
+	4 0
+*.bb/c
+*.bb/c/*
+bb/c/*
+bb/c/*
+6
+bb
+bb/c
+bb/c/d
+a.bb
+a.bb/c
+a.bb/c/d

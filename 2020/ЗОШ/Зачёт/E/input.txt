@@ -1,0 +1,14 @@
+void foo() {
+B b
+C c
+bar()
+throw
+bar()
+}
+void bar() {
+T t
+}
+void main() {
+A a
+foo()
+}

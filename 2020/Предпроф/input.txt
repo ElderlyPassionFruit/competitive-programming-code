@@ -1,0 +1,2 @@
+http://1.2.3.4/cgi-bin/serve-control
+smb:\\300.400.600.800\data

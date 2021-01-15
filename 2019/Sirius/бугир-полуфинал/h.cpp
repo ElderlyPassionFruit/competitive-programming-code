@@ -1,0 +1,33 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+#define int long long
+
+void read() {
+    vector <int> a = {0, 1};
+    for (int i = 0; i < 100; i++) {
+        a.push_back(a[a.size() - 1] + a[a.size() - 2]);
+        if (a[a.size() - 1] > 1e18)
+            break;
+    }
+    for (auto i : a)
+        cout << i << endl;
+}
+
+void run() {
+
+}
+
+void write() {
+
+}
+
+signed main() {
+    ios_base::sync_with_stdio(0);
+    cin.tie(0);
+    cout.tie(0);
+    read();
+    run();
+    write();
+    return 0;
+}

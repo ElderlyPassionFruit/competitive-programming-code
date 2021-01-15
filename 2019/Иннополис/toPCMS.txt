@@ -1,0 +1,3 @@
+Игорь Маркелов
+login: shop-16
+password: rafadubi

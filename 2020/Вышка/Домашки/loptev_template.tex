@@ -1,0 +1,69 @@
+\usepackage[utf8]{inputenc}
+\usepackage[english,russian]{babel}
+\usepackage{graphicx}
+\usepackage{amsmath, amsthm, amssymb, mathtools}
+\usepackage[T2A]{fontenc}
+\usepackage{enumitem}
+\usepackage[margin=0.6in]{geometry}
+\usepackage[usenames]{color}
+\usepackage{colortbl}
+\linespread{1.1}
+\usepackage{gensymb}
+
+\usepackage{cellspace}
+\usepackage[linkcolor=blue,colorlinks=true]{hyperref}
+
+\usepackage{mleftright,xparse}
+\usepackage{yhmath}
+
+\usepackage{etoolbox}
+\apptocmd{\lim}{\limits}{}{}
+\apptocmd{\sum}{\limits}{}{}
+\apptocmd{\int}{\limits}{}{}
+\apptocmd{\prod}{\limits}{}{}
+\apptocmd{\inf}{\limits}{}{}
+\apptocmd{\int}{\limits}{}{}
+\apptocmd{\iint}{\limits}{}{}
+
+
+\NewDocumentCommand\xDeclarePairedDelimiter{mmm}
+{%
+ \NewDocumentCommand#1{som}{%
+  \IfNoValueTF{##2}
+   {\IfBooleanTF{##1}{#2##3#3}{\mleft#2##3\mright#3}}
+   {\mathopen{##2#2}##3\mathclose{##2#3}}%
+ }%
+}
+
+\let\originaleqref\eqref % or \let\originaleqref\ref to drop parens
+\makeatletter
+\renewcommand{\eqref}[1]{%
+  \begingroup%
+  \let\ref\@refstar%
+  \hyperref[#1]{\originaleqref{#1}}%
+  \endgroup
+}
+\makeatother
+
+\DeclareMathOperator{\rng}{rng}
+\DeclareMathOperator{\comb}{C}
+\DeclareMathOperator{\mexp}{\mathbb{E}}
+\DeclareMathOperator{\var}{\mathbb{D}}
+\DeclareMathOperator{\prob}{\mathsf{P}}
+\DeclareMathOperator{\const}{const}
+\renewcommand{\geq}{\geqslant}
+\renewcommand{\leq}{\leqslant}
+\DeclareMathOperator{\isgeq}{\overset{?}{\geq}}
+\DeclareMathOperator{\isgt}{\overset{?}{>}}
+\DeclareMathOperator{\isleq}{\overset{?}{\leq}}
+\DeclareMathOperator{\islt}{\overset{?}{<}}
+\DeclareMathOperator{\RR}{\mathbb{R}}
+\DeclareMathOperator{\NN}{\mathbb{N}}
+\DeclareMathOperator{\QQ}{\mathbb{Q}}
+\DeclareMathOperator{\ZZ}{\mathbb{Z}}
+\DeclareMathOperator{\CC}{\mathbb{C}}
+\DeclareMathOperator{\dom}{dom}
+\DeclareMathOperator{\Pois}{Pois}
+\DeclareMathOperator{\cov}{cov}
+
+\xDeclarePairedDelimiter{\abs}{\lvert}{\rvert}
